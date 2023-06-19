@@ -34,18 +34,3 @@ employeeTracking.close()
 employeeTracking = open("employeeTracking.txt", "r")
 print(employeeTracking.read())
 employeeTracking.close()
-
-##date = str(input("Enter beginning date: (dd/mm/yyyy)"))
-##date2 = str(input("Enter recent date: "))
-##            
-##x = date.split("/")
-##y = date2.split("/")
-##
-##t1 = datetime.datetime(year = x[2], month = x[1], day = x[0])
-##t2 = datetime.datetime(year = y[2], month = y[1], day = y[0])
-##
-##print("First date : ", date)
-##print("Second date : ", date2)
-##print("Number of days between this two days: ", str(t2-t1))
-
-

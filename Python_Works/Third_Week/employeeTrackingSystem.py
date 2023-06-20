@@ -1,13 +1,21 @@
 from datetime import datetime, timedelta
 import random
-firstTime = input("Write beginning date and moment: (yyyy/mm/dd/hh/min/sec)")
-lastTime = input("Write end date and moment: ")
+firstTime = input("Enter first date: ")
+t1 = datetime.strptime(firstTime, "%d %B %Y")
 
-firstTime = datetime.strptime(firstTime, "%Y/%m/%d/%H/%M/%S")
-lastTime = datetime.strptime(lastTime, "%Y/%m/%d/%H/%M/%S")
+lastTime = input("Enter last date: ")
+t2 = datetime.strptime(lastTime, "%d %B %Y")
 
-c = lastTime - firstTime
+c = t2 - t1
 print("Difference:", c.days)
+
+##firstTime = input("Write beginning date and moment: ")
+##lastTime = input("Write end date and moment: ")
+##
+##firstTime = datetime.strptime(firstTime, "%Y/%m/%d/%H/%M/%S")
+##lastTime = datetime.strptime(lastTime, "%Y/%m/%d/%H/%M/%S")
+
+
 
 dataArr = []
 def time():
@@ -22,19 +30,21 @@ def time():
         else:
             
             # this randoms assign hour and minute for each time period
-            enterHour = random.randint(8, 12) 
+            enterHour = random.randint(8, 8) 
             enterMinute = random.randint(0, 59)
             
-            lunchHour = random.randint(12, 13)
-            lunchMinute = random.randint(0, 59)
-
-            lunchEnterHour = random.randint(12, 13)
+            lunchHour = random.randint(12, 12)
+            if lunchHour == 13:
+                lunchMinute == 0
+            else:
+                lunchMinute = random.randint(0, 59)
+            lunchEnterHour = random.randint(13, 13)
             lunchEnterMinute = random.randint(0, 59)
                 
             outHour = random.randint(17, 24)
             outMinute = random.randint(0, 59)
 
-            actualDate = firstTime + timedelta(days=i) # timedelta ensure that change days
+            actualDate = t1 + timedelta(days=i) # timedelta ensure that change days
             hour = (lunchHour - enterHour) + (outHour - lunchEnterHour)
             data = f"Sahin Mersin", actualDate.strftime("%Y-%m-%d"), "Morning:", f"{enterHour:02d}:{enterMinute:02d}", "Lunch Exit:", f"{lunchHour:02d}:{lunchMinute:02d}","Lunch Enter:",f"{lunchEnterHour:02d}:{lunchEnterMinute}", "Exit:", f"{outHour:02d}:{outMinute:02d}","Total work: ",f"{hour}","hours"
             dataArr.append(data)

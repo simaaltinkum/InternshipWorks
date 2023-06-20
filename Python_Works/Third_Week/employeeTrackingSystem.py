@@ -12,10 +12,12 @@ def time():
     for i in range(c.days): 
         k = 0
         if i == 5 + 7*k or i == 6 + 7*k: # i write this code 19 june 2023 monday i test it with this date if u want to change day you must change 5 and 6 
-            wknd = "Weekend"
+            wknd = "Weekend\t"
             k += 1
-            dataArr.append(wknd) 
+            dataArr.append(wknd)
+            
         else:
+            
             # this randoms assign hour and minute for each time period
             enterHour = random.randint(8, 12) 
             enterMinute = random.randint(0, 59)
@@ -27,17 +29,21 @@ def time():
             outMinute = random.randint(0, 59)
 
             actualDate = firstTime + timedelta(days=i) # timedelta ensure that change days
-            data = f"Sahin Mersin", actualDate.strftime("%Y-%m-%d"), "Morning:", f"{enterHour:02d}:{enterMinute:02d}", "Lunch:", f"{lunchHour:02d}:{lunchMinute:02d}", "Exit:", f"{outHour:02d}:{outMinute:02d}"
+            
+            data = f"Sahin Mersin", actualDate.strftime("%Y-%m-%d"), "Morning:", f"{enterHour:02d}:{enterMinute:02d}", "Lunch:", f"{lunchHour:02d}:{lunchMinute:02d}", "Exit:", f"{outHour:02d}:{outMinute:02d}\t"
             dataArr.append(data)
-        
+
     return str(dataArr)
-    
-print(time())             
+
+# print(time())
+            
 employeeTracking = open("employeeTracking.txt", "w") # i created a txt doc for recording datas
 employeeTracking.write(time())
 employeeTracking.close()
-
+            
 employeeTracking = open("employeeTracking.txt", "r")
 print(employeeTracking.read())
 employeeTracking.close()
+
+
 

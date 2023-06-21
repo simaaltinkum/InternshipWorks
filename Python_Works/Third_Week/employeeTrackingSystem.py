@@ -46,9 +46,8 @@ def time():
 
             actualDate = t1 + timedelta(days=i) # timedelta ensure that change days
             hour = (lunchHour - enterHour) + (outHour - lunchEnterHour)
-            data = f"Sahin Mersin", actualDate.strftime("%Y-%m-%d"), "Morning:", f"{enterHour:02d}:{enterMinute:02d}", "Lunch Exit:", f"{lunchHour:02d}:{lunchMinute:02d}","Lunch Enter:",f"{lunchEnterHour:02d}:{lunchEnterMinute}", "Exit:", f"{outHour:02d}:{outMinute:02d}","Total work: ",f"{hour}","hours"
+            data = f"Sahin Mersin" + "\t" + actualDate.strftime("%Y-%m-%d")+ "\t"+ "Morning:" + "\t"+ f"{enterHour:02d}:{enterMinute:02d}"+"\t" +"Lunch Exit:" + "\t" + f"{lunchHour:02d}:{lunchMinute:02d}"+"\t"+"Lunch Enter:"+"\t"+f"{lunchEnterHour:02d}:{lunchEnterMinute}"+"\t"+ "Exit:"+"\t"+ f"{outHour:02d}:{outMinute:02d}"+"\t"+"Total work: "+"\t"+f"{hour}"+"\t"+"hours"
             dataArr.append(data)
-
             
 
     return dataArr
@@ -56,9 +55,9 @@ def time():
 # print(time())
             
 employeeTracking = open("employeeTracking.txt", "w") # i created a txt doc for recording datas
-listemiz = time()
-for i in listemiz:
-    employeeTracking.write(str(i) + "\n")
+myList = time()
+for i in myList:    
+    employeeTracking.write(str(i).strip("()").strip("''").strip(",") + "\n")
 employeeTracking.close()
             
 employeeTracking = open("employeeTracking.txt", "r")

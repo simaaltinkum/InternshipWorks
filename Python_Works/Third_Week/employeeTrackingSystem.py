@@ -9,14 +9,6 @@ t2 = datetime.strptime(lastTime, "%d %B %Y")
 c = t2 - t1
 print("Difference:", c.days)
 
-##firstTime = input("Write beginning date and moment: ")
-##lastTime = input("Write end date and moment: ")
-##
-##firstTime = datetime.strptime(firstTime, "%Y/%m/%d/%H/%M/%S")
-##lastTime = datetime.strptime(lastTime, "%Y/%m/%d/%H/%M/%S")
-
-
-
 dataArr = []
 def time():
     dataArr = [] # i create array to buffer the entering and exit datas
@@ -51,13 +43,11 @@ def time():
             
 
     return dataArr
-
-# print(time())
             
 employeeTracking = open("employeeTracking.txt", "w") # i created a txt doc for recording datas
 myList = time()
 for i in myList:    
-    employeeTracking.write(str(i).strip("()").strip("''").strip(",") + "\n")
+    employeeTracking.write(str(i).strip("()") + "\n")
 employeeTracking.close()
             
 employeeTracking = open("employeeTracking.txt", "r")

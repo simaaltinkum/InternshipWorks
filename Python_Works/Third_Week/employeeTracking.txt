@@ -1,12 +1,12 @@
-Sahin Mersin	2023-06-19	Morning:	08:06	Lunch Exit:	12:36	Lunch Enter:	13:57	Exit:	20:45	Total work: 	11	hours
-Sahin Mersin	2023-06-20	Morning:	08:28	Lunch Exit:	12:57	Lunch Enter:	13:25	Exit:	19:48	Total work: 	10	hours
-Sahin Mersin	2023-06-21	Morning:	08:52	Lunch Exit:	12:18	Lunch Enter:	13:4	Exit:	19:08	Total work: 	10	hours
-Sahin Mersin	2023-06-22	Morning:	08:35	Lunch Exit:	12:55	Lunch Enter:	13:18	Exit:	19:58	Total work: 	10	hours
-Sahin Mersin	2023-06-23	Morning:	08:28	Lunch Exit:	12:21	Lunch Enter:	13:57	Exit:	19:01	Total work: 	10	hours
+Sahin Mersin	2023-06-19	Morning:	08:43	Lunch Exit:	12:25	Lunch Enter:	13:52	Exit:	23:11	Total work: 	14	hours
+Sahin Mersin	2023-06-20	Morning:	08:34	Lunch Exit:	12:11	Lunch Enter:	13:43	Exit:	24:48	Total work: 	15	hours
+Sahin Mersin	2023-06-21	Morning:	08:52	Lunch Exit:	12:12	Lunch Enter:	13:56	Exit:	20:40	Total work: 	11	hours
+Sahin Mersin	2023-06-22	Morning:	08:29	Lunch Exit:	12:05	Lunch Enter:	13:14	Exit:	23:37	Total work: 	14	hours
+Sahin Mersin	2023-06-23	Morning:	08:57	Lunch Exit:	12:28	Lunch Enter:	13:59	Exit:	24:52	Total work: 	15	hours
 
 
-Sahin Mersin	2023-06-26	Morning:	08:23	Lunch Exit:	12:58	Lunch Enter:	13:14	Exit:	22:49	Total work: 	13	hours
-Sahin Mersin	2023-06-27	Morning:	08:29	Lunch Exit:	12:31	Lunch Enter:	13:35	Exit:	22:33	Total work: 	13	hours
-Sahin Mersin	2023-06-28	Morning:	08:01	Lunch Exit:	12:37	Lunch Enter:	13:51	Exit:	24:23	Total work: 	15	hours
-Sahin Mersin	2023-06-29	Morning:	08:50	Lunch Exit:	12:00	Lunch Enter:	13:27	Exit:	19:33	Total work: 	10	hours
-Sahin Mersin	2023-06-30	Morning:	08:53	Lunch Exit:	12:15	Lunch Enter:	13:37	Exit:	21:50	Total work: 	12	hours
+Sahin Mersin	2023-06-26	Morning:	08:56	Lunch Exit:	12:45	Lunch Enter:	13:45	Exit:	24:50	Total work: 	15	hours
+Sahin Mersin	2023-06-27	Morning:	08:46	Lunch Exit:	12:28	Lunch Enter:	13:55	Exit:	21:11	Total work: 	12	hours
+Sahin Mersin	2023-06-28	Morning:	08:00	Lunch Exit:	12:27	Lunch Enter:	13:48	Exit:	18:03	Total work: 	9	hours
+Sahin Mersin	2023-06-29	Morning:	08:26	Lunch Exit:	12:07	Lunch Enter:	13:30	Exit:	21:12	Total work: 	12	hours
+Sahin Mersin	2023-06-30	Morning:	08:35	Lunch Exit:	12:37	Lunch Enter:	13:21	Exit:	20:53	Total work: 	11	hours

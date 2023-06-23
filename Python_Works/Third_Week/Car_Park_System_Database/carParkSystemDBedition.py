@@ -1,4 +1,7 @@
 import sqlite3
+import json
+import xml.etree.cElementTree as ET
+
 class Car:
     def __init__(self, plate, name, tckn, entering_right):
         self.plate = plate
@@ -8,7 +11,7 @@ class Car:
 
 cList = []
 
-print("For adding car select 1, for parking select 2, for showing infos select 3")
+print("For adding car select 1, for parking select 2, for showing infos select 3, for creating folder select 4")
 
 while True:
     select = int(input("Select Operation: "))
@@ -38,6 +41,29 @@ while True:
     elif select ==3:
         for i in cList:
             print(i.plate, i.name, i.entering_right)
+            
+    elif select == 4:
+        select2 = int(input("What type do you want to convert your file to? For JSON 1, for XML 2"))                        
+        if select2 == 1:
+            with open("cars.json", "w") as file:
+                json.dump(cList, file, default=lambda obj: obj.__dict__, indent=4)
+
+        elif select2 == 2:
+            root = ET.Element("Cars")
+            for car in cList:
+                car_elem = ET.SubElement(root, "Car")
+                plate_elem = ET.SubElement(car_elem, "Plate")
+                plate_elem.text = car.plate
+                name_elem = ET.SubElement(car_elem, "Name")
+                name_elem.text = car.name
+                entering_right_elem = ET.SubElement(car_elem, "EnteringRight")
+                entering_right_elem.text = str(car.entering_right)
+
+            tree = ET.ElementTree(root)
+            tree.write("cars.xml")
+            print("Successfully written data to cars.xml")
+        else:
+            print("Invalid selection")                     
     else:
         print("Invalid")
         
@@ -58,4 +84,3 @@ while True:
         addValue(car.plate, car.name, car.tckn, car.entering_right)
 
     con.close()
-

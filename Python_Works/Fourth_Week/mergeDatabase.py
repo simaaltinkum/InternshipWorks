@@ -34,5 +34,3 @@ studentsConn.close()
 lessonsConn.close()
 selectedCursor.close()
 selectedLessonsConn.close()
-
-

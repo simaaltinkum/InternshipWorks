@@ -31,8 +31,3 @@ while True:
         print("Invalid select")
 
 con.close()
-
-
-
-
-

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Time right now:</title>
+    </head>
+    <body>
+        <div id="time"></div>
+        <script>
+            function updateTime() {
+                var date = new Date().toLocaleString("tr-TR");
+                document.getElementById("time").innerHTML = "Time right now: " + date;
+            }
+
+            updateTime();
+
+            setInterval(updateTime, 1000); 
+        </script>
+    </body>
+</html>

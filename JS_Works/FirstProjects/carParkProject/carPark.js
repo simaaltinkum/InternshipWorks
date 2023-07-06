@@ -30,15 +30,14 @@ while (true) {
             }
         }
         
-    } else if (select == 3) {
+    }else if (select == 3) {
         for (var i = 0; i < cList.length; i++) { 
             console.log(cList[i].plate, cList[i].driver, cList[i].entering_right);
         }
-    } else if (select == 4){
+    }else if (select == 4){
         console.log("Quiting...")
         break;
-    }
-    else {
+    }else {
         console.log("Invalid");
     }
 }

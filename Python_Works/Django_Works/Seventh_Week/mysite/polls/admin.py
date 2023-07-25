@@ -11,7 +11,7 @@ class QuestionAdmin(admin.ModelAdmin):
         (None, {"fields": ["question_text"]}),
         ("Date information", {"fields": ["pub_date"], "classes": ["collapse"]}),
     ]
-    inlines = [ChoiceInline]
+    inlines = [ChoiceInLine]
     list_display = ["question_text", "pub_date", "was_published_recently"]
 
 

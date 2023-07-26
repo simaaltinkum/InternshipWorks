@@ -7,7 +7,7 @@ from .import views
 
 
 urlpatterns = [
-    path('', views.home ),
-    path('homepage/',views.home),
-    path('courses/', views.courses),
+    path('list', views.courses),
+    path('details', views.details),
+    path('<category>', views.getCoursesByCategory),
 ]

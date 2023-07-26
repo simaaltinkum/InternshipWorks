@@ -1,13 +1,9 @@
 from django.urls import path
 from .import views
 
-# http://127.0.0.1:8000/client        => homepage
-# http://127.0.0.1:8000/client/home    => homepage
-# http://127.0.0.1:8000/client/courses => course list
-
-
 urlpatterns = [
     path('list', views.courses),
-    path('details', views.details),
-    path('<category>', views.getCoursesByCategory),
+    path('<course_name>', views.details),
+    path('category/<int:category_id>', views.getCoursesCategoryId),
+    path('category/<str:category_name>', views.getCoursesByCategory, name='courses_by_category'),
 ]

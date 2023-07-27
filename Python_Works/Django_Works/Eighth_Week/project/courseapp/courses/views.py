@@ -1,3 +1,4 @@
+from datetime import date
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.urls import reverse
@@ -8,22 +9,47 @@ data = {
     "mobile":"Courses which are in mobile category",
 }
 
+db = {
+    "courses" : [
+        {
+            "title": "javascript course",
+            "description": "javascript course description",
+            "imageUrl": "https://img-c.udemycdn.com/course/750x422/1258436_2dc3_4.jpg",
+            "slug": "javascript-course",
+            "date": date(2023, 7, 27),
+            "is-active": True
+        },
+
+        {
+            "title": "javascript course",
+            "description": "javascript course description",
+            "imageUrl": "https://img-c.udemycdn.com/course/750x422/2463492_8344_3.jpg",
+            "slug": "javascript-course",
+            "date": date(2023, 8, 27),
+            "is-active": True
+        },
+
+        {
+            "title": "javascript course",
+            "description": "javascript course description",
+            "imageUrl": "https://img-c.udemycdn.com/course/750x422/1662526_fc1c_3.jpg",
+            "slug": "javascript-course",
+            "date": date(2023, 9, 27),
+            "is-active": True
+        }
+    ],
+    "categories": ["programming", "web-developing",]
+}
+
 # http://127.0.0.1:8000/courses
 
 def index(request):
-    return render(request, "courses/index.html")
-
-def courses(request):
     list_items = ""
     category_list = list(data.keys())
 
-    for category in category_list:
-        redirect_url = reverse('courses_by_category', args=[category])
-        list_items += f"<li><a href='{redirect_url}'>{category}</a></li>"
-
-    html = f"<h1>Course List</h1><br><ul>{list_items}</ul>"
-
-    return HttpResponse(html)
+    return render(request, "courses/index.html",{
+        'categories': category_list
+    })
 
 def details(request, course_name):
     return HttpResponse(f"{course_name} detail page")
@@ -31,7 +57,10 @@ def details(request, course_name):
 def getCoursesByCategory(request, category_name):
     try:
         category_text = data[category_name];
-        return HttpResponse(category_text)
+        return render(request, 'courses/courses.html', {
+            'category': category_name,
+            'category_text': category_text
+        })
     except:
         return HttpResponseNotFound("<h1>False category choose</h2>")
 

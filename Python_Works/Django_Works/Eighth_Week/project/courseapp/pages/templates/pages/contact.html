@@ -1,53 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css" />
-    <title>Title</title>
-</head>
-<body>
-    <!--navbar -->
-    <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
-        <div class="container">
-            <a href="/" class="navbar-brand">Course App</a>
+{% extends 'layout.html' %}
 
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a href="/" class="nav-link">Courses</a>
-                </li>
+{% block css_files %}
+    <link rel="stylesheet" href="https://cdnjs.cloudlare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+{% endblock %}
 
-                <li class="nav-item">
-                    <a href="/contact" class="nav-link">Contact</a>
-                </li>
+{% block page_title %}
+    contact
+{% endblock %}
 
-                <li class="nav-item">
-                    <a href="/about" class="nav-link">About</a>
-                </li>
-
-            </ul>
-        </div>
-    </nav>
+{% block content %}
 
     <div class="container mt-3">
-        <div class="row"></div>
-            <div class="col-3 ">
-                <!--menu -->
-                <div class="list-group">
+        <div class="row">
+            <div class="col-12 ">
+                <h1> Contact </h1>
 
-                    <a href="#" class="list-group-item list-group-item-action">Programming</a>
-                    <a href="#" class="list-group-item list-group-item-action">Web Developing</a>
-                    <a href="#" class="list-group-item list-group-item-action">Mobile Developing</a>
-
-                </div>
             </div>
+        </div>
 
             <div class="col-9">
-                <!--content -->
+
             </div>
+        </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js" ></script>
-</body>
-</html>
+{% endblock %}

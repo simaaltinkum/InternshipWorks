@@ -38,13 +38,17 @@ db = {
             "is-active": True
         }
     ],
-    "categories": ["programming", "web-developing",]
+    "categories": [
+        {"id": 1, "name":"programming","slug":"programming"},
+        {"id": 2, "name":"web-developing","slug":"web-developing"},
+        {"id": 3, "name":"mobile apps","slug":"mobile appds"}
+    ]
 }
 
 # http://127.0.0.1:8000/courses
 
 def index(request):
-    list_items = ""
+    course = db["courses"]
     category_list = list(data.keys())
 
     return render(request, "courses/index.html",{

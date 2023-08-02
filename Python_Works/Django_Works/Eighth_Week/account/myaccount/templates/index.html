@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Account Project</title>
+</head>
+
+<body>
+
+    <h1>Account List</h1>
+    <ul>
+        {% for account in account_list %}
+            <li>{{ account.ad }} - Debt : {{ account.debt }}</li>
+        {% endfor %}
+    </ul>
+
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="company_name">Company Name:</label>
+            <input type="text" id="company_name" name="company_name" required>
+        </div>
+
+        <div>
+            <label for="boss_name">Boss Name:</label>
+            <input type="text" id="boss_name" name="boss_name" required>
+        </div>
+
+        <div>
+            <label for="debt">Debt:</label>
+            <input type="number" id="debt" name="debt" value="0" required>
+        </div>
+
+        <div>
+            <label for="credit">Credit:</label>
+            <input type="number" id="credit" name="credit" value="0" required>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Form for Customer Model -->
+    <form  method="POST">
+        <div class="col">
+            <h1>Login</h1>
+
+            {% csrf_token %}
+            <div>
+                <label for="name">Customer Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div>
+                <label for="customer_debt">Debt:</label>
+                <input type="number" id="customer_debt" name="customer_debt" value="0" required>
+            </div>
+
+            <div>
+                <label for="customer_credit">Credit:</label>
+                <input type="number" id="customer_credit" name="customer_credit" value="0" required>
+            </div>
+
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+</body>
+
+</html>

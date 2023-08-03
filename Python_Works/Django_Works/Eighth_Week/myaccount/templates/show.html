@@ -8,8 +8,7 @@
     <ul>
 
         {% for item in account_list %}
-            <li>{{ item.company_name }} - {{ item.boss_name}} - {{ item.debt }} - {{ item.credit }}</li>
-            <li>{{ item.name}} - {{ item.debt }} - {{ item.credit }}</li>
+            <li>{{ item.company_name }} - {{ item.boss_name}} - {{ item.email }} - {{item.telephone }} - {{ item.tax }}</li>
         {% endfor %}
 
     </ul>

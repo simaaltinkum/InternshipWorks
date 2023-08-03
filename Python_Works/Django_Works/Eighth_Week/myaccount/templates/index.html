@@ -8,10 +8,10 @@
 
 <body>
 
-    <h1>Account List</h1>
+    <h1>Save Company</h1>
     <ul>
         {% for account in account_list %}
-            <li>{{ account.ad }} - Debt : {{ account.debt }}</li>
+            <li>Company Name: {{ account.company_name }} - Boss : {{ account.boss_name }} - EMail : {{ account.email }} - Telephone : {{ account.telephone }} - Tax : {{ account.tax }}</li>
         {% endfor %}
     </ul>
 
@@ -28,19 +28,24 @@
         </div>
 
         <div>
-            <label for="debt">Debt:</label>
-            <input type="number" id="debt" name="debt" value="0" required>
+            <label for="email">E-Mail:</label>
+            <input type="text" id="email" name="email" name = "email" required>
         </div>
 
         <div>
-            <label for="credit">Credit:</label>
-            <input type="number" id="credit" name="credit" value="0" required>
+            <label for="telephone">Telephone Number:</label>
+            <input type="telephone" id="telephone" name="telephone" value="0" required>
+        </div>
+
+        <div>
+            <label for="tax">Tax ID:</label>
+            <input type="tax" id="tax" name="tax" value="0" required>
         </div>
 
         <button type="submit">Submit</button>
     </form>
 
-    <!-- Form for Customer Model -->
+    <!--
     <form  method="POST">
         <div class="col">
             <h1>Login</h1>
@@ -63,7 +68,7 @@
 
             <button type="submit">Submit</button>
         </div>
-    </form>
+    </form> -->
 
 </body>
 

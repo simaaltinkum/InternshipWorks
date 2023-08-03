@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Money Operations</title>
+</head>
+<body>
+<h1>Money Operations</h1>
+    <ul>
+        {% for account in account_list %}
+            <li>Debt: {{ account.debt }} - Boss : {{ account.credit }} </li>
+        {% endfor %}
+    </ul>
+
+<form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="debt">Debt:</label>
+            <input type="text" id="debt" name="debt" required>
+        </div>
+
+        <div>
+            <label for="credit">Credit:</label>
+            <input type="text" id="credit" name="credit" required>
+        </div>
+
+</body>
+</html>

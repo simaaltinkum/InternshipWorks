@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+
+        {% for item in account_list %}
+            <li>{{ item.debt }} - {{ item.credit}}</li>
+        {% endfor %}
+
+    </ul>
+</body>
+</html>

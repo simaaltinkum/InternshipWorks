@@ -4,8 +4,11 @@
     <title>Select Company</title>
 </head>
 <body>
-<a href = "/select/?company=Microne">Firma Seç 1</a>
-<a href = "/select/">Firma Seç 2</a>
+
+    {% for company in account_list %}
+        <a href = "/operation/" target = "_blank">{{ company.company_name }}</a>
+    {% endfor %}
+
     <h1>Select a Company</h1>
     <form method="get">
         <label for="company">Choose a Company:</label>
@@ -13,6 +16,7 @@
         <select name="company" id="company">
             {% for company in account_list %}
                 <option value="{{ company.company_name }}">{{ company.company_name }}</option>
+                <a href = "/select/">{{ company.company_name }}</a>
             {% endfor %}
         </select>
 

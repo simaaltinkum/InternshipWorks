@@ -5,10 +5,15 @@
     <title>Money Operations</title>
 </head>
 <body>
+
+    {% for company in account_list %}
+        <a href = "/operation/" target = "_blank">{{ company.company_name }}</a>
+    {% endfor %}
+
 <h1>Money Operations</h1>
     <ul>
         {% for account in account_list %}
-            <li>Debt: {{ account.debt }} - Boss : {{ account.credit }} </li>
+            <li>Debt: {{ account.debt }} - Credit : {{ account.credit }} </li>
         {% endfor %}
     </ul>
 
@@ -23,6 +28,8 @@
             <label for="credit">Credit:</label>
             <input type="text" id="credit" name="credit" required>
         </div>
-
+    <br>
+        <input type="submit" value="Save">
+</form>
 </body>
 </html>

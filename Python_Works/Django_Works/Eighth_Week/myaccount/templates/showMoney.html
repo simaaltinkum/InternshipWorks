@@ -5,12 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-<ul>
-
-        {% for item in account_list %}
-            <li>{{ item.debt }} - {{ item.credit}}</li>
-        {% endfor %}
-
-    </ul>
+    {% for company in name_list %}
+        <a href = "/sum/" target = "_blank">{{ company.company_name }}</a>
+    {% endfor %}
 </body>
 </html>

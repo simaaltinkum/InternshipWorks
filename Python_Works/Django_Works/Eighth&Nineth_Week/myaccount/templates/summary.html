@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul>
+    {% for item in name_list %}
+        <li>
+            <a href="#" onclick="showAccountInfo('{{ item.id }}')">
+                Company Name: {{ item.company_name }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+<div id="accountInfo"></div>
+
+<script>
+    function showAccountInfo(companyId) {
+        var accountInfoDiv = document.getElementById("accountInfo");
+        var accountInfoHtml = "<ul>";
+
+        {% for account in account_list %}
+            if ("{{ account.id }}" === companyId) {
+                accountInfoHtml += "<li>Debt: " + {{ account.debt }} + " - Credit: " + {{ account.credit }} + "</li>";
+            }
+        {% endfor %}
+
+        accountInfoHtml += "</ul>";
+        accountInfoDiv.innerHTML = accountInfoHtml;
+    }
+
+</script>
+</body>
+</html>

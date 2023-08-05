@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Company</title>
+</head>
+<body>
+    <h1>Select a Company</h1>
+    {% for company in account_list %}
+        <a href = "/operation/" target = "_blank">{{ company.company_name }}</a>
+    {% endfor %}
+
+
+    <!-- <form method="get">
+        <label for="company">Choose a Company:</label>
+
+        <select name="company" id="company">
+            {% for company in account_list %}
+                <option value="{{ company.company_name }}">{{ company.company_name }}</option>
+                <a href = "/select/">{{ company.company_name }}</a>
+            {% endfor %}
+        </select>
+
+        <br>
+        <input type="submit" value="Select">
+    </form> -->
+</body>
+</html>

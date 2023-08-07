@@ -23,6 +23,13 @@ def showCompany(request):
     }
     return render(request, "show.html", context)
 
+def info(request):
+    account_list = Companies.objects.all()
+    context = {
+        "account_list": account_list
+    }
+    return render(request, "info.html", context)
+
 def selectCompany(request):
 
     account_list = Companies.objects.all()
@@ -31,6 +38,14 @@ def selectCompany(request):
     }
 
     return render(request, "select.html", context)
+def selectCompanyDetail(request, pk):
+
+    operation = Operation.objects.get(pk=pk)
+    context = {
+        "operation": operation
+    }
+
+    return render(request, "detail.html", context)
 
 def money(request):
     if request.method == 'POST':
@@ -56,4 +71,4 @@ def sum(request):
          "account_list": account_list,
          "name_list": name_list
      }
-     return render(request, "summary.html", context)
+     return render(request, "sum.html", context)

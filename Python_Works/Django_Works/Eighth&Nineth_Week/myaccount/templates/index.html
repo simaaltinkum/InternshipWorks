@@ -17,7 +17,7 @@
 
     <form method="post">
         {% csrf_token %}
-        <div>
+        <!-- <div>
             <label for="company_name">Company Name:</label>
             <input type="text" id="company_name" name="company_name" required>
         </div>
@@ -42,34 +42,34 @@
             <input type="tax" id="tax" name="tax" value="0" required>
         </div>
 
-        <button type="submit">Submit</button>
+         -->
+        <fieldset class="form-fieldset">
+                            <div class="mb-3">
+                              <label class="form-label required">Company Name</label>
+                              <input type="text" class="form-control" autocomplete="off">
+                            </div>
+                            <div class="mb-3">
+                              <label class="form-label required">Boss Name</label>
+                              <input type="text" class="form-control" autocomplete="off">
+                            </div>
+                            <div class="mb-3">
+                              <label class="form-label required">Email</label>
+                              <input type="email" class="form-control" autocomplete="off">
+                            </div>
+                            <div class="mb-3">
+                              <label class="form-label">Phone number</label>
+                              <input type="tel" class="form-control" autocomplete="off">
+                            </div>
+                            <div class="mb-3">
+                              <label class="form-label">Tax Id</label>
+                              <input type="tax" class="form-control" autocomplete="off">
+                            </div>
+                            <button type="submit">Submit</button>
+                            <!-- <label class="form-check">
+                              <input type="checkbox" class="form-check-input">
+                              <span class="form-check-label required">I agree to the Terms &amp; Conditions</span>
+                            </label> -->
+                          </fieldset>
     </form>
-
-    <!--
-    <form  method="POST">
-        <div class="col">
-            <h1>Login</h1>
-
-            {% csrf_token %}
-            <div>
-                <label for="name">Customer Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-
-            <div>
-                <label for="customer_debt">Debt:</label>
-                <input type="number" id="customer_debt" name="customer_debt" value="0" required>
-            </div>
-
-            <div>
-                <label for="customer_credit">Credit:</label>
-                <input type="number" id="customer_credit" name="customer_credit" value="0" required>
-            </div>
-
-            <button type="submit">Submit</button>
-        </div>
-    </form> -->
-
 </body>
-
 </html>

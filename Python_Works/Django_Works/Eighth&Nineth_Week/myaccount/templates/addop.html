@@ -675,7 +675,7 @@
                           {% for company in account_list %}
                             <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                             <td><span class="text-secondary"><a href="{% url 'selectCompanyDetail' company.pk %}">{{ company.pk }}</a></span></td>
-                            <td><a href = 'select/detail/<int:pk>/' class="text-reset" tabindex="-1" target = "_blank">{{ company.company_name }}</a></td>
+                            <td><a href = '/operation/' class="text-reset" tabindex="-1" target = "_blank">{{ company.company_name }}</a></td>
 
                           <td>
                             <span class="flag flag-xs flag-country-us me-2"></span>

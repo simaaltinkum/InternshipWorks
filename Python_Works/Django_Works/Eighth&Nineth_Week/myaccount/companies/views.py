@@ -16,19 +16,19 @@ def add_company(request):
         form = CompaniesForm()
     return render(request, 'index.html')
 
-def showCompany(request):
-    account_list = Companies.objects.all()
+def showCompany(request, pk):
+    account_list = Companies.objects.get(pk=pk)
     context = {
         "account_list": account_list
     }
     return render(request, "show.html", context)
 
-def info(request):
+def info(request, pk):
     account_list = Companies.objects.all()
     context = {
         "account_list": account_list
     }
-    return render(request, "info.html", context)
+    render(request, "info.html", context)
 
 def selectCompany(request):
 
@@ -39,7 +39,6 @@ def selectCompany(request):
 
     return render(request, "select.html", context)
 def selectCompanyDetail(request, pk):
-
     operation = Operation.objects.get(pk=pk)
     context = {
         "operation": operation

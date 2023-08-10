@@ -9,6 +9,7 @@
                       CBU TEKNOKENT<br>
                       Manisa<br>
                       Yunusemre, Muradiye<br>
+                      ltd@example.com
                     </address>
                   </div>
                   <div class="col-6 text-end">
@@ -17,16 +18,39 @@
                       Street Address<br>
                       State, City<br>
                       Region, Postal Code<br>
+                      ctr@example.com
                     </address>
                   </div>
                   <div class="col-12 my-5">
-                    <h1>Bill</h1>
+                    <h1>Invoice INV/001/15</h1>
                   </div>
-                    <tbody><tr>
+                </div>
+                <table class="table table-transparent table-responsive">
+                  <thead>
+                    <tr>
+                      <th class="text-center" style="width: 1%"></th>
+                      <th>Bill</th>
+                      <th class="text-center" style="width: 1%">Debt</th>
+                      <th class="text-end" style="width: 1%">Credit</th>
+                      <th class="text-end" style="width: 1%">Account Deficit</th>
+                    </tr>
+                  </thead>
+                  <tbody><tr>
                     <td class="text-center">1</td>
-                    <td class="text-center">
-
+                    <td>
+                      <p class="strong mb-1"></p>
+                      <div class="text-secondary">Software company</div>
                     </td>
-                    <td class="text-end">Debt: {{ operation.debt }}</td>
-                    <td class="text-end">Credit: {{ operation.credit }}</td>
+                    <td class="text-center">
+                      ${{ operation.debt }}
+                    </td>
+                    <td class="text-end">${{ operation.credit }}</td>
+                    <td class="text-end">${{ operation.dif }}</td><td class="text-end"></td>
                   </tr>
+                </tbody></table>
+                <p class="text-secondary text-center mt-5">Thank you very much for doing business with us. We look forward to working with
+                  you again!</p>
+              </div>
+            </div>
+          </div>
+        </div>

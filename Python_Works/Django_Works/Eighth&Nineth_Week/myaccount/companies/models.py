@@ -12,3 +12,5 @@ class Companies(models.Model):
 class Operation(models.Model):
     debt = models.IntegerField(default=0)
     credit = models.IntegerField(default=0)
+    def dif(self):
+        return (self.credit - self.debt)

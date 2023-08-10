@@ -17,7 +17,8 @@
 
     <form method="post">
         {% csrf_token %}
-        <!-- <div>
+        <fieldset class="form-fieldset">
+         <div>
             <label for="company_name">Company Name:</label>
             <input type="text" id="company_name" name="company_name" required>
         </div>
@@ -41,31 +42,8 @@
             <label for="tax">Tax ID:</label>
             <input type="tax" id="tax" name="tax" value="0" required>
         </div>
-
-         -->
-        <fieldset class="form-fieldset">
-                            <div class="mb-3">
-                              <label class="form-label required">Company Name</label>
-                              <input type="text" class="form-control" autocomplete="off">
-                            </div>
-                            <div class="mb-3">
-                              <label class="form-label required">Boss Name</label>
-                              <input type="text" class="form-control" autocomplete="off">
-                            </div>
-                            <div class="mb-3">
-                              <label class="form-label required">Email</label>
-                              <input type="email" class="form-control" autocomplete="off">
-                            </div>
-                            <div class="mb-3">
-                              <label class="form-label">Phone number</label>
-                              <input type="tel" class="form-control" autocomplete="off">
-                            </div>
-                            <div class="mb-3">
-                              <label class="form-label">Tax Id</label>
-                              <input type="tax" class="form-control" autocomplete="off">
-                            </div>
-                            <button type="submit">Submit</button>
-                          </fieldset>
-    </form>
+        <button type="submit">Submit</button>
+    </fieldset>
+</form>
 </body>
 </html>

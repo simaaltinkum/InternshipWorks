@@ -23,7 +23,7 @@ def showCompany(request, pk):
     }
     return render(request, "show.html", context)
 
-def info(request, pk):
+def info(request):
     account_list = Companies.objects.all()
     context = {
         "account_list": account_list
@@ -46,15 +46,25 @@ def selectCompanyDetail(request, pk):
 
     return render(request, "detail.html", context)
 
-def money(request):
+def money(request, pk):
     if request.method == 'POST':
         form = OperationForm(request.POST)
+
         if form.is_valid():
-            form.save()
-            return render(request, "money.html")
+            if pk == 1:
+                form.save()
+            else:
+                instance = form.save(commit=False)
+                existing_instance = Operation.objects.get(pk=pk)
+                existing_instance.delete()
+                instance.id = pk
+                instance.save()
+
+        return render(request, "money.html")
     else:
         form = OperationForm()
-    return render(request, 'money.html')
+    return render(request, 'money.html', {'form': form})
+
 
 def showMoney(request):
 

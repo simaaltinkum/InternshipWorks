@@ -10,21 +10,7 @@
 
     <form method="post">
         {% csrf_token %}
-        <ul>
-            {% for account in account_list %}
-                <li>
-                    {{ account.company_name }}:
-                </li>
-            {% endfor %}
-            <div>
-                <label for="debt">Debt:</label>
-                <input type="text" id="debt" name="debt" required>
-            </div>
-            <div>
-                <label for="credit">Credit:</label>
-                <input type="text" id="credit" name="credit" required>
-            </div>
-        </ul>
+        {{ form.as_ul }}
         <button type="submit">Submit</button>
     </form>
 

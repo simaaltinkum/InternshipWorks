@@ -20,5 +20,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('meseapp.urls')),
+    path("", include("django.contrib.flatpages.urls")),
     path('admin/', admin.site.urls),
 ]

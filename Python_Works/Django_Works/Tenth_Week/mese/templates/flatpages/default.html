@@ -1,5 +1,5 @@
 <html lang="en"><head>
-    <title> Homepage </title>
+    <title> {{ flatpage.title }} </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -75,7 +75,7 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav mr-auto">
 				{% for item in nav_item %}
-					<li class="nav-item"><a href="index.html" class="nav-link pl-0">{{ item.nav_item }}</a></li>
+					<li class="nav-item"><a href="index.html" class="nav-link pl-0">{{ flatpage.item }}</a></li>
 					<li class="nav-item"><a href="about.html" class="nav-link"> {{ item.nav_item2 }} </a></li>
 					<li class="nav-item active"><a href="courses.html" class="nav-link">{{ item.nav_item3 }}</a></li>
 					<li class="nav-item"><a href="teacher.html" class="nav-link">{{ item.nav_item4 }}</a></li>

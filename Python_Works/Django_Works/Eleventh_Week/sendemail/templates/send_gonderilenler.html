@@ -1,0 +1,4 @@
+{% for i in liste %}
+    <p><a href="/message/{{ i.pk }}/">{{ i.pk }} ---- {{ i.email }}</a>{{ i.title }}</p>
+{% endfor %}
+

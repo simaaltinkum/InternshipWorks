@@ -1,3 +1,6 @@
+Total : {{ length }}
 {% for mail in email %}
-  <p> {{ mail.pk }} -- {{ mail.email }} -- {{ mail.title }} -- {{ mail.message }} </p>
+    <p>{{ forloop.counter }} -- {{ mail.email }}</p>
 {% endfor %}
+
+

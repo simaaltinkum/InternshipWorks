@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Query</title>
+</head>
+<body>
+    {% if email %}
+        <h1>Email Details</h1>
+        <p>Title: {{ email.title }}</p>
+        <p>Message: {{ email.message }}</p>
+    {% else %}
+        <p>The specified email could not be found.</p>
+    {% endif %}
+</body>
+</html>

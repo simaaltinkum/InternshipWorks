@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.core.mail import send_mail
 from faker import Faker
 from .models import Email
-
+from django.db.models import Q
 
 def send_email(request):
     if request.method == 'POST':
@@ -56,9 +56,54 @@ def record_email(request, num_emails=10):
     return render(request,'record_email.html')
 
 def show_email(request):
-    email = Email.objects.all().order_by('-id')[:10]
+    text = request.GET.get('q', '')
+    text1 = request.GET.get('q1', '')
+
+    if text and text1 is not None:
+        try:
+            email = Email.objects.filter(Q(email__icontains=text) & Q(email__icontains=text1))
+            context = {
+                "email": email,
+                "length": len(email)
+            }
+        except Email.DoesNotExist:
+            email = None
+    else:
+        email = None
+
+    return render(request, 'show_email.html', context)
+
+
+
+    """email = Email.objects.all().order_by('-id')[:10]
 
     context = {
         'email': email
+    }"""
+
+
+"""def query_email(request):
+    email_address = request.GET.get('q', '')
+
+    if email_address:
+        try:
+            email = Email.objects.get(email=email_address)
+        except Email.DoesNotExist:
+            email = None
+    else:
+        email = None
+    return render(request, 'query_email.html', {'email': email})"""
+
+"""query_dict = request.GET
+    try:
+        query = int(query_dict.get('q'))
+    except:
+        query = None
+    qs = Email.objects.all()
+    if query is not None:
+        qs = Email.objects.filter(title__icontains=query)
+
+    context = {
+        'qs': qs
     }
-    return render(request, 'show_email.html', context)
+    return render(request, 'query_email.html', context)"""

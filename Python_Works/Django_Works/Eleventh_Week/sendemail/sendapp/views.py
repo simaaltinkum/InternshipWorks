@@ -72,38 +72,3 @@ def show_email(request):
         email = None
 
     return render(request, 'show_email.html', context)
-
-
-
-    """email = Email.objects.all().order_by('-id')[:10]
-
-    context = {
-        'email': email
-    }"""
-
-
-"""def query_email(request):
-    email_address = request.GET.get('q', '')
-
-    if email_address:
-        try:
-            email = Email.objects.get(email=email_address)
-        except Email.DoesNotExist:
-            email = None
-    else:
-        email = None
-    return render(request, 'query_email.html', {'email': email})"""
-
-"""query_dict = request.GET
-    try:
-        query = int(query_dict.get('q'))
-    except:
-        query = None
-    qs = Email.objects.all()
-    if query is not None:
-        qs = Email.objects.filter(title__icontains=query)
-
-    context = {
-        'qs': qs
-    }
-    return render(request, 'query_email.html', context)"""

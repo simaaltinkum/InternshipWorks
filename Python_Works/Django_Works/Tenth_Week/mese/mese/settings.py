@@ -86,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'simadb',
         'USER':'root',
-        'PASSWORD': '*******',
+        'PASSWORD': 'NEdeyon2',
         "DEFAULT-CHARACTER-SET": 'utf8mb4',
         'HOST':'localhost',
         'PORT': '3306'

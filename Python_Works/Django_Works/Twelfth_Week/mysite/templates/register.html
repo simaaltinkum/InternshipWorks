@@ -1,0 +1,26 @@
+<form method="post">
+        {% csrf_token %}
+        <fieldset class="form-fieldset">
+         <div>
+            <label for="full_name">Full Name:</label>
+            <input type="text" id="full_name" name="full_name" required>
+        </div>
+
+        <div>
+            <label for="user_name">User Name:</label>
+            <input type="text" id="user_name" name="user_name" required>
+        </div>
+
+        <div>
+            <label for="email">E-Mail:</label>
+            <input type="text" id="email" name="email" name = "email" required>
+        </div>
+
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"  required>
+        </div>
+
+        <button type="submit">Submit</button>
+    </fieldset>
+</form>

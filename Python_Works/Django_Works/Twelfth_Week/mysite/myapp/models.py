@@ -1,7 +1,7 @@
 from django.db import models
+from django.conf import settings
 
-class Users(models.Model):
-    full_name = models.CharField(max_length=200)
-    user_name = models.CharField(max_length=200)
-    email = models.CharField(max_length=200)
-    password = models.CharField(max_length=200)
+class Tweet(models.Model):
+    person = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    content = models.CharField(max_length=140)
+    created_at = models.DateTimeField(auto_now_add=True)

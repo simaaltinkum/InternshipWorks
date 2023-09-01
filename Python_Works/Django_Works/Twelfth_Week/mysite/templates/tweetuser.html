@@ -1,0 +1,9 @@
+<form method="post">
+        {% csrf_token %}
+        <fieldset class="form-fieldset">
+         <div>
+            <label for="content">Tweet:</label>
+            <input type="text" id="content" name="content" required>
+        </div>
+        <button type="submit">Submit</button>
+</form>

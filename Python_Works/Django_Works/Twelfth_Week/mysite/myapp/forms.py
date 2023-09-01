@@ -1,7 +1,7 @@
 from django.forms import ModelForm
-from myapp.models import Users
+from myapp.models import Tweet
 
-class UsersForm(ModelForm):
+class TweetModelForm(ModelForm):
     class Meta:
-        model = Users
-        fields = ['user_name', 'email', 'password']
+        model = Tweet
+        fields = ["person", "content"]

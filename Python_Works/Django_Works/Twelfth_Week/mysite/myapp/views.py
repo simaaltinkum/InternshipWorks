@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .forms import TweetModelForm
 from .models import Tweet
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 def homepage(request):
     tweet_list = Tweet.objects.all()
@@ -9,7 +9,7 @@ def homepage(request):
     context = {
         'tweet_list': tweet_list
     }
-    return render(request,'homepage.html', context)
+    return render(request,'home.html', context)
 
 def login_user(request):
     if request.method == 'POST':
@@ -23,6 +23,10 @@ def login_user(request):
             return render (request,'invalidlogin.html')
 
     return render(request, 'login.html')
+
+def logout_user(request):
+    logout(request)
+    return render(request, 'logout.html')
 
 def tweet_user(request):
     if request.user.is_authenticated:
@@ -49,3 +53,4 @@ def tweet_user(request):
             else:
                 return render(request, 'invalidlogin.html')
         return render(request, 'login.html')
+

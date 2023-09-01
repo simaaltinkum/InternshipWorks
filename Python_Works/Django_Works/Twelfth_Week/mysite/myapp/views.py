@@ -29,9 +29,23 @@ def tweet_user(request):
         if request.method == 'POST':
             form = TweetModelForm(request.POST)
             if form.is_valid():
-                form.save()
+                f = form.save(commit=False)
+                f.person = request.user
+                f.save()
                 return render(request, 'tweetuser.html')
             else:
                 form = TweetModelForm()
-                return render(request, 'register.fail.html')
+                return render(request, 'registerfail.html')
         return render(request, 'tweetuser.html')
+
+    else:
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return render(request, 'loginsuccess.html')
+            else:
+                return render(request, 'invalidlogin.html')
+        return render(request, 'login.html')

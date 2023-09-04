@@ -1,11 +1,16 @@
-<form method="post">
-        {% csrf_token %}
-        <fieldset class="form-fieldset">
-         <div>
+<form method="post" enctype= multipart/form-data>
+    {% csrf_token %}
+    <fieldset class="form-fieldset">
+        <div>
             <label for="content">Tweet:</label>
             <input type="text" id="content" name="content" required>
         </div>
-        <a href="/homepage/" class="btn btn-primary">
-        <button type="submit">Submit</button>
-        </a>
+
+        <div>
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </fieldset>
 </form>

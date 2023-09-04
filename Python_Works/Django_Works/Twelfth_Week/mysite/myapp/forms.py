@@ -4,4 +4,4 @@ from myapp.models import Tweet
 class TweetModelForm(ModelForm):
     class Meta:
         model = Tweet
-        fields = ["content"]
+        fields = ["content", "image"]

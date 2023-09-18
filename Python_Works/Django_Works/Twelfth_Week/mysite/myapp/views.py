@@ -64,13 +64,14 @@ def tweet_user(request):
 @api_view(['POST'])
 def add_tweets(request):
     tweet = TweetSerializer(data=request.data)
-
-    if Tweet.objects.filter(**request.data).exists():
+    filter_params = {'content__in': request.data}
+    if Tweet.objects.filter(**filter_params).exists():
         raise serializers.ValidationError('This data already exists')
 
     if tweet.is_valid():
         tweet.save()
-        return Response(tweet.data)
+        print(tweet)
+        return Response(tweet.data, status=status.HTTP_201_CREATED)
     else:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -78,6 +79,7 @@ def add_tweets(request):
 def view_tweets(request):
     if request.query_params:
         tweet = Tweet.objects.filter(**request.query_params.dict())
+
     else:
         tweet = Tweet.objects.all()
 

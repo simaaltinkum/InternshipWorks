@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Registered Barkods and QRs</h1>
+<ul>
+  {% for data in qr_data %}
+    <li>{{ data.qr }}</li>
+    <li>{{ data.type }}</li>
+  {% endfor %}
+</ul>
+</body>
+</html>

@@ -2,6 +2,8 @@ from django.shortcuts import render
 from pyzbar.pyzbar import decode
 import cv2
 from .models import Qr
+from .forms import QrForm
+
 def homepage(request):
     return render(request, 'homepage.html')
 
@@ -32,6 +34,7 @@ def read_qr(request):
             break
 
     cap.release()
+    cv2.destroyAllWindows()
 
     if data is not None:
         cv2.destroyAllWindows()
@@ -45,16 +48,50 @@ def read_qr(request):
         cv2.destroyAllWindows()
         return render(request, 'no_qr_found.html')
 
-def list(request):
+
+def type(request):
     if request.method == 'POST':
-        qr_data = Qr.objects.all()
-        context = {
-            'qr_data': qr_data
-        }
+        form = QrForm(request.POST)
+        if form.is_valid():
+            form.save()
+            print("form kaydedildi")
+            return render(request, 'type.html')
+        else:
+            print("form geçerli değil")
+    else:
+        form = QrForm()
+        print("form kaydedilmedi")
+
+    return render(request, 'type.html')
+
+
+def list(request):
+    qr_data = Qr.objects.all()
+    context = {
+        'qr_data': qr_data
+    }
+    return render(request, 'qr_data.html', context)
+
+"""def list(request):
+    if request.method == 'POST':
+        form = QrForm(request.POST)
+        if form.is_valid():
+            f = form.save(commit=False)
+            f.person = request.type
+            f.save()
+        else:
+            form = QrForm()
+            qr_data = Qr.objects.all()
+            context = {
+                'qr_data': qr_data,
+                'form': form
+            }
         return render(request, 'qr_data.html', context)
     else:
+        form = QrForm()
         qr_data = Qr.objects.all()
         context = {
-            'qr_data': qr_data
+            'qr_data': qr_data,
+            'form': form
         }
-        return render(request, 'qr_data.html', context)
+        return render(request, 'qr_data.html', context)"""

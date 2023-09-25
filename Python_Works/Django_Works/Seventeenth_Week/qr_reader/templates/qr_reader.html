@@ -17,21 +17,10 @@
 
     <h1>Qr Code Readed</h1>
     <p>Qr Code Data: {{ data }}</p>
-
-    <h2></h2>
-
-    <form method="post">
-        {% csrf_token %}
-        <fieldset class="form-fieldset">
-        <div>
-            <label for="type">Enter the type of qr code readed thing:</label>
-            <input type="text" id="type" name="type" required>
-        </div>
-        <a href="/qr-list/" class="btn btn-primary">
-            <button type="submit">Submit</button>
-        </a>
-    </fieldset>
-</form>
+    <h1>Add Type for Code</h1>
+    <a href="/type/" class="btn btn-primary">
+        <button type="button">Click</button>
+    </a>
 
     <h1>Another Operation</h1>
     <a href="/qr-reader/" class="btn btn-primary">

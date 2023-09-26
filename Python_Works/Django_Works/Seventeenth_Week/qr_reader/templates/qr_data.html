@@ -10,6 +10,7 @@
   {% for data in qr_data %}
     <li>{{ data.qr }}</li>
     <li>{{ data.type }}</li>
+    <img src = "/media/{{ data.image }}"> {{ data.image }} </img>
   {% endfor %}
 </ul>
 

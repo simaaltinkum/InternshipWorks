@@ -5,6 +5,8 @@ from numpy import *
 from cv2 import *
 from .models import Qr
 from .forms import QrForm
+import uuid
+import os
 
 def homepage(request):
     return render(request, 'homepage.html')
@@ -31,11 +33,15 @@ def read_qr(request):
                     print(obj.data)
                     print(obj.type)
 
-                    if ret:
-                        cv2.imshow("saved", frame)
-                        cv2.imwrite("savedcv.png", frame)
-                        cv2.waitKey(0)
-                        cv2.destroyWindow("saved")
+            if ret:
+                media_folder = "media"
+                cv2.imshow("saved", frame)
+                file_name = os.path.join(media_folder, f"savedcv_{str(uuid.uuid4())[:8]}.png")
+                cv2.imwrite(file_name, frame)
+                img = Qr(image= file_name)
+                img.save()
+                cv2.waitKey(0)
+                cv2.destroyWindow("saved")
                 break
                 return render(request, 'qr_reader.html')
 
@@ -94,26 +100,3 @@ def list(request):
     }
     return render(request, 'qr_data.html', context)
 
-"""def list(request):
-    if request.method == 'POST':
-        form = QrForm(request.POST)
-        if form.is_valid():
-            f = form.save(commit=False)
-            f.person = request.type
-            f.save()
-        else:
-            form = QrForm()
-            qr_data = Qr.objects.all()
-            context = {
-                'qr_data': qr_data,
-                'form': form
-            }
-        return render(request, 'qr_data.html', context)
-    else:
-        form = QrForm()
-        qr_data = Qr.objects.all()
-        context = {
-            'qr_data': qr_data,
-            'form': form
-        }
-        return render(request, 'qr_data.html', context)"""

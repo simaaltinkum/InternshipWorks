@@ -2,7 +2,6 @@ from django.shortcuts import render
 from pyzbar.pyzbar import decode
 import cv2
 from numpy import *
-from cv2 import *
 from .models import Qr
 from .forms import QrForm
 import uuid
@@ -34,9 +33,10 @@ def read_qr(request):
                     print(obj.type)
 
             if ret:
-                media_folder = "media"
+                # media_folder = "media"
+                # media_folder
                 cv2.imshow("saved", frame)
-                file_name = os.path.join(media_folder, f"savedcv_{str(uuid.uuid4())[:8]}.png")
+                file_name = os.path.join(f"savedcv_{str(uuid.uuid4())[:8]}.png")
                 cv2.imwrite(file_name, frame)
                 img = Qr(image= file_name)
                 img.save()
@@ -99,4 +99,3 @@ def list(request):
         'qr_data': qr_data
     }
     return render(request, 'qr_data.html', context)
-

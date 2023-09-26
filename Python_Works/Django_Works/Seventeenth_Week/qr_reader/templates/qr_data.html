@@ -1,18 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Registered Barkods and QRs</h1>
-<ul>
-  {% for data in qr_data %}
-    <li>{{ data.qr }}</li>
-    <li>{{ data.type }}</li>
-    <img src = "/media/{{ data.image }}"> {{ data.image }} </img>
-  {% endfor %}
-</ul>
+<style>
+table {
+    width: 100%;
+}
 
-</body>
-</html>
+table td {
+    width: 33%;
+    vertical-align: top;
+}
+
+table th {
+    text-align: left;
+}
+</style>
+
+<table>
+  <tr>
+    <th>QR</th>
+    <th>Type</th>
+    <th>Image</th>
+  </tr>
+  {% for data in qr_data %}
+    <tr>
+      <td>{{ data.qr }}</td>
+      <td>{{ data.type }}</td>
+      <td><img src="/media/{{ data.image }}" alt="{{ data.image }}"></td>
+    </tr>
+  {% endfor %}
+</table>

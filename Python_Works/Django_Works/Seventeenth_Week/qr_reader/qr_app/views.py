@@ -43,7 +43,7 @@ def read_qr(request):
                 cv2.waitKey(0)
                 cv2.destroyWindow("saved")
                 break
-                return render(request, 'qr_reader.html')
+            return render(request, 'qr_reader.html')
 
         except Exception as e:
             print("Barkod okuma hatası:", str(e))

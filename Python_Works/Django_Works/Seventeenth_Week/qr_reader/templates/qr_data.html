@@ -1,29 +1,36 @@
-<style>
-table {
-    width: 100%;
-}
-
-table td {
-    width: 33%;
-    vertical-align: top;
-}
-
-table th {
-    text-align: left;
-}
-</style>
-
-<table>
-  <tr>
-    <th>QR</th>
-    <th>Type</th>
-    <th>Image</th>
-  </tr>
+<table class="table card-table table-vcenter text-nowrap datatable">
   {% for data in qr_data %}
-    <tr>
-      <td>{{ data.qr }}</td>
-      <td>{{ data.type }}</td>
-      <td><img src="{{ data.image }}" alt="{{ data.image }}"></td>
-    </tr>
-  {% endfor %}
-</table>
+                      <thead>
+                        <tr>
+                          <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"></th>
+                          <th class="w-1">No. <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M6 15l6 -6l6 6"></path></svg>
+                          </th>
+                          <th>QR</th>
+                          <th>Type</th>
+                          <th>Image</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
+                          <td><span class="text-secondary">001401</span></td>
+                          <td><a href="invoice.html" class="text-reset" tabindex="-1">{{ data.qr }}</a></td>
+                          <td>
+                            <span class="flag flag-xs flag-country-us me-2"></span>
+                            {{ data.type }}
+                          </td>
+                          <td>
+                            <img src="/media/{{ data.image }}" alt="{{ data.image }}">
+                          </td>
+                          <td>
+
+                          </td>
+                          <td>
+                            <span class="badge bg-success me-1"></span>
+                          </td>
+                        </tr>
+                      </tbody>
+   {% endfor %}
+                    </table>

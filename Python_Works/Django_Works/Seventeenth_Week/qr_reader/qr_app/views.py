@@ -61,26 +61,11 @@ def read_qr(request):
         print("bbb")
         return render(request, 'qr_reader.html')
 
+def search(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
 
-#def photo(request):
-   # return render(request, 'photo.html')
-"""def taking_photo(request):
-    cap = cv2.VideoCapture(0)
-    ret, frame = cap.read()
-    if ret:
-
-        cv2.imshow('frame', ret)
-        file_name = os.path.join(f"savedcv_{str(uuid.uuid4())[:8]}.png")
-        cv2.imwrite(file_name, frame)
-
-        object = Qr(image=file_name)
-        object.save()
-
-        cv2.waitKey(0)
-        cv2.destroyWindow()
-
-        return render(request, 'taking_photo')"""
-
+        return render(request, 'search.html', {'searched': searched})
 def type(request):
     if request.method == 'POST':
         form = QrForm(request.POST)

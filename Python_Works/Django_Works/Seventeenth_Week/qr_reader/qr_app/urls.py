@@ -7,7 +7,5 @@ urlpatterns = [
     path('qr-reader/', views.read_qr, name = 'qr-reader'),
     path('qr-list/', views.list, name = 'qr-data'),
     path('type/', views.type, name = 'type'),
-    # path('photo/', views.photo, name = 'photo'),
-    # path('photo-take/', views.taking_photo, name = 'photo'),
     path('', views.homepage, name = 'homepage')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

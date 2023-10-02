@@ -1,12 +1,10 @@
-{% extends 'templates/qr_reader.html %}
-
 {% block content %}
-    <center>
-        {% if searched %}
-            <h1>You Searched For...</h1>
-
-        {% else %}
-            <h1>No results</h1>
-        {% endif searched %}
-
-    </center>
+  {% if searched %}
+    <h1>You searched for {{ searched }}</h1>
+    {% for qr in qr %}
+      <h1>{{ qr }} Found</h1>
+    {% endfor %}
+  {% else %}
+    <h1>Not found</h1>
+  {% endif %}
+{% endblock %}

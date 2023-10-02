@@ -64,8 +64,14 @@ def read_qr(request):
 def search(request):
     if request.method == "POST":
         searched = request.POST['searched']
+        qr = Qr.objects.filter(qr__icontains = searched)
+        if qr :
+            return render(request, 'search.html')
+        else:
+            return render(request, notfound.html)
+    else:
+        return render(request, 'search.html', {})
 
-        return render(request, 'search.html', {'searched': searched})
 def type(request):
     if request.method == 'POST':
         form = QrForm(request.POST)

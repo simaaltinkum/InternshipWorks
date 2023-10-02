@@ -1,10 +1,10 @@
 {% block content %}
   {% if searched %}
-    <h1>You searched for {{ searched }}</h1>
-    {% for qr in qr %}
-      <h1>{{ qr }} Found</h1>
-    {% endfor %}
+      <h1>You searched for {{ searched }}</h1>
+      {% for qrs in qr %}
+        <h1>{{ qrs }} Found</h1>
+      {% endfor %}
   {% else %}
-    <h1>Not found</h1>
+      <h1>Not found</h1>
   {% endif %}
 {% endblock %}

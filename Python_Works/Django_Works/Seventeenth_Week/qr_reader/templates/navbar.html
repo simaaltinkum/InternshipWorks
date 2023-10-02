@@ -5,3 +5,11 @@
     <button class="btn btn-outline-secondary"
             type="submit">Search</button>
 </form>
+
+<form class="d-flex" role="search" method="post" action="{% url 'qr-reader' %}">
+    {% csrf_token %}
+    <input class="form-control me-2"
+           type="search" placeholder="Search" name="searched" required aria-label="Search">
+    <button class="btn btn-outline-secondary"
+            type="submit">Search</button>
+</form>

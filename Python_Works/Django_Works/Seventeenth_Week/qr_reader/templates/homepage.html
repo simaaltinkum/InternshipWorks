@@ -5,13 +5,24 @@
 </head>
 <body>
     <div class="card-footer text-end">
-                  <div class="d-flex">
-                    <h1>Click Button for QR Reading</h1>
-                    <a href="/qr-reader/" class="btn btn-link">
-                    <button type="submit" class="btn btn-primary ms-auto">Click</button>
-                    </a>
-                  </div>
-                </div>
+        <div class="d-flex">
+            <h1>Click Button for QR Reading</h1>
+            <a href="/qr-reader/" class="btn btn-link">
+                <button type="submit" class="btn btn-primary ms-auto">Click</button>
+            </a>
+        </div>
+    </div>
+
+<form method="post">
+        {% csrf_token %}
+        <fieldset class="form-fieldset">
+        <div>
+            <label for="type">Enter the type of qr code readed thing:</label>
+            <input type="text" id="type" name="type" required>
+        </div>
+            <button type="submit">Submit</button>
+        </fieldset>
+</form>
 
 <form class="d-flex" role="search" method="post" action="{% url 'search' %}">
     {% csrf_token %}

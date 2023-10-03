@@ -1,48 +1,46 @@
-from django.shortcuts import render
+from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from pyzbar.pyzbar import decode
 import cv2
 from numpy import *
 from qr_reader.settings import  MEDIA_ROOT
 from .models import Qr
-from .forms import QrForm
+from .forms import QrSavingForm
 import uuid
 import os
 
 def homepage(request):
     return render(request, 'homepage.html')
 
+
 def read_qr(request):
+
     cap = cv2.VideoCapture(0)
-    data = None
-
+    qr = None
     frame2 = None
-    object = Qr()
+    image = ''
 
-    while data is None:
+    while qr is None:
         ret, frame = cap.read()
         if ret:
             frame2 = frame
-            file_name = os.path.join(f"savedcv_{str(uuid.uuid4())[:8]}.png")
-            cv2.imwrite(MEDIA_ROOT + "/" + file_name, frame)
-
-            object.image = file_name
-            object.save()
+            image = os.path.join(f"savedcv_{str(uuid.uuid4())[:8]}.png")
+            cv2.imwrite(MEDIA_ROOT + "/" + image, frame)
             break
 
-    print("cikis")
     gray = cv2.cvtColor(frame2, cv2.COLOR_BGR2GRAY)
 
     try:
         decoded_objects = decode(gray)
 
         for obj in decoded_objects:
-            data = obj.data.decode('utf-8')
+            qr = obj.data.decode('utf-8')
             (x, y, w, h) = obj.rect
             cv2.rectangle(gray, (x, y), (x + w, y + h), (255, 0, 0), 2)
-            print("barkod")
 
-            if obj.data != "":
-                print(obj.data)
+            if obj.qr != "":
+                print(obj.qr)
                 print(obj.type)
 
     except Exception as e:
@@ -51,17 +49,48 @@ def read_qr(request):
     cap.release()
     cv2.destroyAllWindows()
 
-    if data is not None:
-        object.qr = data
-        object.save()
-        print("aaa")
-        return render(request, 'qr_reader.html', {'data': data, 'object': object})
-    else:
-        print("bbb")
-        return render(request, 'qr_reader.html')
+    print("qr", qr)
+    print("image", image)
 
-def save_qr(request, file_name, data):
+    if qr and image is not None:
+        obje = Qr.objects.create(image=image, qr=qr)
+        return HttpResponseRedirect(reverse('save-qr', args=[obje.pk]))
+
+    else:
+        return HttpResponse("No QR code found")
+
+
+def save_qr(request, pk):
     if request.method == "GET":
+        obje = Qr(pk=pk)
+
+        initial_dict = {
+            "image": obje.image,
+            "qr": obje.qr,
+            "pk": pk
+        }
+
+        form = QrSavingForm(initial=initial_dict)
+
+        context = {
+            'form': form,
+            'image': obje.image,
+            "pk": pk
+        }
+
+    if request.method == "POST":
+        form = QrSavingForm(request.POST)
+
+        if form.is_valid():
+            pk = form.cleaned_data["pk"]
+            type = form.cleaned_data["type"]
+
+        obje = Qr.objects.get(pk=pk)
+        obje.type = type
+        obje.save()
+        context = {}
+
+    return render(request, 'save_qr.html', context)
 
 
 def search(request):
@@ -70,24 +99,10 @@ def search(request):
         qr = Qr.objects.filter(qr = searched)
         type = Qr.objects.filter(type = searched)
         return render(request, 'search.html', {'searched': searched, 'qr': qr, 'type': type})
+
     else:
         return render(request, 'search.html', {})
 
-def type(request):
-    if request.method == 'POST':
-        form = QrForm(request.POST)
-        if form.is_valid():
-            form.save()
-            print("form kaydedildi")
-            return render(request, 'type.html')
-        else:
-            print("form geçerli değil")
-    else:
-        form = QrForm()
-        print("form kaydedilmedi")
-
-
-    return render(request, 'type.html')
 
 def list(request):
     qr_data = Qr.objects.all()

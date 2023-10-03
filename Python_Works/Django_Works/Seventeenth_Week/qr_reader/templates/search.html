@@ -1,16 +1,24 @@
 {% block content %}
+
   {% if searched %}
     <h1>You searched for {{ searched }}</h1>
+
     {% for types in type %}
       <h1>{{ types.type }}</h1>
+      <h1>{{ types.qr }}</h1>
       <h1>{{ types.created_at }}</h1>
+      <img src = "/media/{{ types.image }}">
     {% endfor %}
+
     {% for qrs in qr %}
       <h1>{{ qrs.qr }} Found</h1>
+      <h1>{{ qrs.type }} Found</h1>
       <h1>{{ qrs.created_at }} Found</h1>
-      <img src = "/media/{{ qrs.image }}"></img>
+      <img src = "/media/{{ qrs.image }}">
     {% endfor %}
+
   {% else %}
     <h1>Not found</h1>
   {% endif %}
+
 {% endblock %}

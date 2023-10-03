@@ -6,7 +6,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('qr-reader/', views.read_qr, name = 'qr-reader'),
     path('qr-list/', views.list, name = 'qr-data'),
-    path('type/', views.type, name = 'type'),
+    # path('type/', views.type, name = 'type'),
     path('search/', views.search, name = 'search'),
+    path('save-qr/<str:pk>/', views.save_qr, name = 'save-qr'),
     path('', views.homepage, name = 'homepage')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

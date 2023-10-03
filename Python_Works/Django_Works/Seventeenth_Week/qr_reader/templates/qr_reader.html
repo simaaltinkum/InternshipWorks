@@ -22,12 +22,24 @@
     <img src = "/media/{{ object.image }}"></img>
 
     <h1>Add Type</h1>
-    <a href="/type/" class="btn btn-primary">
-        <button type="button">Click</button>
-    </a>
+    <form method="post" >
+        {% csrf_token %}
+        <fieldset class="form-fieldset">
+        <div>
+            <label for="type">Enter the type of qr code readed thing:</label>
+            <input type="text" id="type" name="type" required>
+        </div>
+            <button type="submit">Submit</button>
+        </fieldset>
+    </form>
 
     <h1>Another Operation</h1>
     <a href="/qr-reader/" class="btn btn-primary">
+        <button type="button">Click</button>
+    </a>
+
+    <h1>For Saving Datas</h1>
+    <a href="/save-qr/" class="btn btn-primary">
         <button type="button">Click</button>
     </a>
 </body>

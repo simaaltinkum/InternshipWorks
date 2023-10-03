@@ -1,4 +1,5 @@
 from django.forms import ModelForm
+from django import forms
 from qr_app.models import Qr
 
 class QrForm(ModelForm):
@@ -6,8 +7,9 @@ class QrForm(ModelForm):
         model = Qr
         fields = ['type']
 
-class QrSavingForm(ModelForm):
 
+class QrSavingForm(ModelForm):
+    pk = forms.CharField()
     class Meta:
         model = Qr
-        fields = ['qr', 'image', 'type']
+        fields = ['type', "pk"]

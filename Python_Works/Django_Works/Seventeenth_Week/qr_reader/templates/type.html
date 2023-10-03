@@ -1,11 +1,10 @@
-<form method="post">
+<form method="post" action="{% url 'type' %}">
         {% csrf_token %}
         <fieldset class="form-fieldset">
         <div>
             <label for="type">Enter the type of qr code readed thing:</label>
             <input type="text" id="type" name="type" required>
         </div>
-
             <button type="submit">Submit</button>
         </fieldset>
 </form>

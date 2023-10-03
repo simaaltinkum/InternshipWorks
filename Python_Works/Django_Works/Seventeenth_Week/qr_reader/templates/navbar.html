@@ -6,10 +6,13 @@
             type="submit">Search</button>
 </form>
 
-<form class="d-flex" role="search" method="post" action="{% url 'qr-reader' %}">
-    {% csrf_token %}
-    <input class="form-control me-2"
-           type="search" placeholder="Search" name="searched" required aria-label="Search">
-    <button class="btn btn-outline-secondary"
-            type="submit">Search</button>
+<form method="post" action="{% url 'type' %}">
+        {% csrf_token %}
+        <fieldset class="form-fieldset">
+        <div>
+            <label for="type">Enter the type of qr code readed thing:</label>
+            <input type="text" id="type" name="type" required>
+        </div>
+            <button type="submit">Submit</button>
+        </fieldset>
 </form>

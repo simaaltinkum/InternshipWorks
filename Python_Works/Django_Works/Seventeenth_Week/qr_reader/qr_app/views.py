@@ -8,7 +8,6 @@ from .forms import QrForm
 import uuid
 import os
 
-
 def homepage(request):
     return render(request, 'homepage.html')
 
@@ -47,7 +46,7 @@ def read_qr(request):
                 print(obj.type)
 
     except Exception as e:
-        print("Barkod okuma hatası:", str(e))
+        print("Barcode reading fault:", str(e))
 
     cap.release()
     cv2.destroyAllWindows()
@@ -61,11 +60,16 @@ def read_qr(request):
         print("bbb")
         return render(request, 'qr_reader.html')
 
+def save_qr(request, file_name, data):
+    if request.method == "GET":
+
+
 def search(request):
     if request.method == "POST":
         searched = request.POST['searched']
-        qr = Qr.objects.filter(qr__contains = searched)
-        return render(request, 'search.html', {'searched': searched, 'qr': qr})
+        qr = Qr.objects.filter(qr = searched)
+        type = Qr.objects.filter(type = searched)
+        return render(request, 'search.html', {'searched': searched, 'qr': qr, 'type': type})
     else:
         return render(request, 'search.html', {})
 
@@ -82,6 +86,7 @@ def type(request):
         form = QrForm()
         print("form kaydedilmedi")
 
+
     return render(request, 'type.html')
 
 def list(request):
@@ -90,4 +95,3 @@ def list(request):
         'qr_data': qr_data
     }
     return render(request, 'qr_data.html', context)
-

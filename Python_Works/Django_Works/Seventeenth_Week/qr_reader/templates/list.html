@@ -653,6 +653,7 @@
                             <th>QR</th>
                             <th>TYPE</th>
                             <th>IMAGE</th>
+                            <th>READING DATE</th>
 
                             <th></th>
                         </tr>
@@ -663,14 +664,13 @@
                             <td><span class="text-secondary">001401</span></td>
                             <td><a href="invoice.html" class="text-reset" tabindex="-1">{{ list.qr }}</a></td>
                             <td>
-                                <span class="flag flag-xs flag-country-us me-2"></span>
                                 {{ list.type }}
                             </td>
                             <td>
                                 <img src="/media/{{ list.image }}" alt="{{ data.image }}">
                             </td>
                             <td>
-
+                              {{ list.created_at }}
                             </td>
                             <td>
                                 <span class="badge bg-success me-1"></span>

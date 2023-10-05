@@ -3,13 +3,7 @@ from django import forms
 from qr_app.models import Qr
 
 class QrForm(ModelForm):
-    class Meta:
-        model = Qr
-        fields = ['type']
-
-
-class QrSavingForm(ModelForm):
     pk = forms.CharField()
     class Meta:
         model = Qr
-        fields = ['type', "pk"]
+        fields = ['type', 'pk']

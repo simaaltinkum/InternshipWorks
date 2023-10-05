@@ -1,35 +1,34 @@
 from django.http import HttpResponseRedirect, HttpResponse
-from django.shortcuts import render, redirect
-from django.urls import reverse
+from django.shortcuts import render, reverse
 from pyzbar.pyzbar import decode
-import cv2
-from numpy import *
 from qr_reader.settings import  MEDIA_ROOT
 from .models import Qr
-from .forms import QrSavingForm
-import uuid
+from .forms import QrForm
+from numpy import *
+import cv2
 import os
+import uuid
+
 
 def homepage(request):
     return render(request, 'homepage.html')
 
 
-def read_qr(request):
-
+def read(request):
     cap = cv2.VideoCapture(0)
     qr = None
-    frame2 = None
     image = ''
+    frame = None
 
     while qr is None:
         ret, frame = cap.read()
+
         if ret:
-            frame2 = frame
-            image = os.path.join(f"savedcv_{str(uuid.uuid4())[:8]}.png")
+            image = os.path.join(f"qr_{str(uuid.uuid4())[:8]}.png")
             cv2.imwrite(MEDIA_ROOT + "/" + image, frame)
             break
 
-    gray = cv2.cvtColor(frame2, cv2.COLOR_BGR2GRAY)
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
     try:
         decoded_objects = decode(gray)
@@ -48,49 +47,46 @@ def read_qr(request):
 
     cap.release()
     cv2.destroyAllWindows()
-
-    print("qr", qr)
-    print("image", image)
+    # return render(request,'read.html')
 
     if qr and image is not None:
-        obje = Qr.objects.create(image=image, qr=qr)
-        return HttpResponseRedirect(reverse('save-qr', args=[obje.pk]))
+        object = Qr.objects.create(qr =qr, image= image)
+        return HttpResponseRedirect(reverse('save', args=[object.pk]))
 
     else:
-        return HttpResponse("No QR code found")
+        return HttpResponse('No QR or Barcode found')
 
 
-def save_qr(request, pk):
-    if request.method == "GET":
-        obje = Qr(pk=pk)
+def save(request, pk):
+    if request.method == 'GET':
+        object = Qr(pk=pk)
 
         initial_dict = {
-            "image": obje.image,
-            "qr": obje.qr,
-            "pk": pk
+            'image': object.image,
+            'qr': object.qr,
+            'pk': pk
         }
 
-        form = QrSavingForm(initial=initial_dict)
+        form = QrForm(initial= initial_dict)
 
         context = {
             'form': form,
-            'image': obje.image,
-            "pk": pk
+            'image': object.image,
+            'pk': pk
         }
-
-    if request.method == "POST":
-        form = QrSavingForm(request.POST)
+    if request.method == 'POST':
+        form = QrForm(request.POST)
 
         if form.is_valid():
-            pk = form.cleaned_data["pk"]
-            type = form.cleaned_data["type"]
+            pk = form.cleaned_data['pk']
+            type = form.cleaned_data['type']
 
-        obje = Qr.objects.get(pk=pk)
-        obje.type = type
-        obje.save()
+        object= Qr.objects.get(pk=pk)
+        object.type = type
+        object.save()
         context = {}
 
-    return render(request, 'save_qr.html', context)
+    return render(request, 'save.html', context)
 
 
 def search(request):
@@ -105,8 +101,9 @@ def search(request):
 
 
 def list(request):
-    qr_data = Qr.objects.all()
+    qr_list = Qr.objects.all()
+
     context = {
-        'qr_data': qr_data
+        'qr_list': qr_list
     }
-    return render(request, 'qr_data.html', context)
+    return render(request, 'list.html', context)

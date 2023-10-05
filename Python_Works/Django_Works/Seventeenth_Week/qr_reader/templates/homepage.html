@@ -1,28 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-</head>
-<body>
-    <div class="card-footer text-end">
-        <div class="d-flex">
-            <h1>Click Button for QR Reading</h1>
-            <a href="/qr-reader/" class="btn btn-link">
-                <button type="submit" class="btn btn-primary ms-auto">Click</button>
-            </a>
-        </div>
+<div class="card-footer text-end">
+    <div class="d-flex">
+        <h1>Click Button for QR or Barcode Reading</h1>
+        <a href="/read/" class="btn btn-link">
+            <button type="submit" class="btn btn-primary ms-auto">Click</button>
+        </a>
     </div>
-
-<form method="post">
-        {% csrf_token %}
-        <fieldset class="form-fieldset">
-        <div>
-            <label for="type">Enter the type of qr code readed thing:</label>
-            <input type="text" id="type" name="type" required>
-        </div>
-            <button type="submit">Submit</button>
-        </fieldset>
-</form>
+</div>
 
 <form class="d-flex" role="search" method="post" action="{% url 'search' %}">
     {% csrf_token %}
@@ -31,5 +14,26 @@
     <button class="btn btn-outline-secondary"
             type="submit">Search</button>
 </form>
-</body>
-</html>
+
+<div class="mb-3">
+    <label class="form-label">Selectgroup with icons and text</label>
+    <div class="form-selectgroup">
+        <label class="form-selectgroup-item">
+            <input type="radio" name="icons" value="home" class="form-selectgroup-input" checked="">
+            <a href="/read/" class="btn btn-link">
+            <span class="form-selectgroup-label"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 12l-2 0l9 -9l9 9l-2 0"></path><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"></path></svg>
+                Qr Read</span>
+            </a>
+        </label>
+
+        <label class="form-selectgroup-item">
+            <input type="radio" name="icons" value="user" class="form-selectgroup-input">
+            <a href="/list/" class="btn btn-link">
+            <span class="form-selectgroup-label"><!-- Download SVG icon from http://tabler-icons.io/i/user -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path></svg>
+                List</span>
+            </a>
+        </label>
+    </div>
+</div>

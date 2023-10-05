@@ -1,13 +1,12 @@
 from django.urls import path
-from.import views
+from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('qr-reader/', views.read_qr, name = 'qr-reader'),
-    path('qr-list/', views.list, name = 'qr-data'),
-    # path('type/', views.type, name = 'type'),
+    path('read/', views.read, name = 'read'),
+    path('save/<str:pk>/', views.save, name = 'save'),
     path('search/', views.search, name = 'search'),
-    path('save-qr/<str:pk>/', views.save_qr, name = 'save-qr'),
+    path('list/', views.list, name = 'list'),
     path('', views.homepage, name = 'homepage')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -195,7 +195,7 @@
                 <div class="col">
                   <ul class="navbar-nav">
                     <li class="nav-item">
-                      <a class="nav-link" href="/">
+                      <a class="nav-link" href="">
                         <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
                           <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 12l-2 0l9 -9l9 9l-2 0"></path><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"></path></svg>
                         </span>
@@ -621,12 +621,14 @@
                 </div>
                 <div class="col-2 d-none d-xxl-block">
                   <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
-                    <form class="d-flex" role="search" method="post" action="{% url 'search' %}">
-                      {% csrf_token %}
-                      <input class="form-control me-2"
-                        type="search" placeholder="Search" name="searched" required aria-label="Search">
-                        <button class="btn btn-outline-secondary"
-                          type="submit">Search</button>
+                    <form action="./" method="get" autocomplete="off" novalidate="">
+                      <div class="input-icon">
+                        <span class="input-icon-addon">
+                          <!-- Download SVG icon from http://tabler-icons.io/i/search -->
+                          <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path><path d="M21 21l-6 -6"></path></svg>
+                        </span>
+                        <input type="text" value="" class="form-control" placeholder="Search…" aria-label="Search in website">
+                      </div>
                     </form>
                   </div>
                 </div>
@@ -642,43 +644,7 @@
             <div class="row g-2 align-items-center">
               <div class="col">
                 <h2 class="page-title">
-                    <table class="table card-table table-vcenter text-nowrap datatable">
-                      {% for list in qr_list %}
-                        <thead>
-                        <tr>
-                            <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"></th>
-                            <th class="w-1">No. <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M6 15l6 -6l6 6"></path></svg>
-                            </th>
-                            <th>QR</th>
-                            <th>TYPE</th>
-                            <th>IMAGE</th>
 
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
-                            <td><span class="text-secondary">001401</span></td>
-                            <td><a href="invoice.html" class="text-reset" tabindex="-1">{{ list.qr }}</a></td>
-                            <td>
-                                <span class="flag flag-xs flag-country-us me-2"></span>
-                                {{ list.type }}
-                            </td>
-                            <td>
-                                <img src="/media/{{ list.image }}" alt="{{ data.image }}">
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-                                <span class="badge bg-success me-1"></span>
-                            </td>
-                        </tr>
-                        </tbody>
-                       {% endfor %}
-                    </table>
                 </h2>
               </div>
             </div>

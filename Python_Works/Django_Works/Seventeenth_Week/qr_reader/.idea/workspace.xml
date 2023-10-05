@@ -5,107 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9f18d9c-ee23-45b4-87d4-5904bd2e1fd4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/read.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/save.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_01e2930d.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_08c0e2cc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_0c87af5f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_15c436a3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_1927387e.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_19ce21e1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_1ac1a438.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_24702d32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_25dba86c.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_27b90627.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_27d67955.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_298d155f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_2af4589b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_2d9001e7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_2f890b46.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_30860bbb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_35504c20.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_3adb91fa.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_3fc36664.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_468877d3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_47d1edb9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_484b5437.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_492b79dd.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_51c0b222.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_5b5e835e.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_612fa287.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_631566e1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_6de5b2e1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_6f747180.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_76d7902b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_7a9eed82.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_7c296df9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_7c6950bb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_866a29e0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_8bfd901e.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_8c05278f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_8e39eb5d.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_8e8aae25.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_924c79fb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_934ce678.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_940f218e.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_9786d146.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_a862dec0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_b04a6e4b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_b68e8cb8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_b70fec60.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_b9ec63a7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_bf934124.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_c18c2ff7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_c564f58f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_ce00077c.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_cf9e16ae.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_d1ce0458.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_dc0f253d.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_dcc73d72.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_eb134cb4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_eee77c9e.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_f0e02cf3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_f20699a8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_f2cc7cfc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_f4a1f421.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_f5788c17.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_fc972a3f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/savedcv_fe2ea5d7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qr_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/qr_app/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qr_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/qr_app/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qr_app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/qr_app/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qr_app/migrations/0002_qr_type_alter_qr_qr.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qr_app/migrations/0003_alter_qr_qr_alter_qr_type.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qr_app/migrations/0004_qr_image.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qr_app/migrations/0005_alter_qr_image.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qr_app/migrations/0006_qr_created_at.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qr_app/migrations/0007_alter_qr_created_at.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qr_app/migrations/0008_alter_qr_created_at.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qr_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/qr_app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qr_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/qr_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/qr_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/qr_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qr_reader/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qr_reader/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qr_reader/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qr_reader/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qr_reader/.idea/qr_reader.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qr_reader/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qr_reader/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/qr_reader/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qr_reader/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/qr_reader/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/homepage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/notfound.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/photo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/qr_data.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/qr_reader.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/save_qr.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/saved.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/success.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/taking_photo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/type.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,9 +34,14 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Internship/Python_Works/Django_Works/Seventeenth_Week/qr_reader"
+    "last_opened_file_path": "D:/Internship/Python_Works/Django_Works/Seventeenth_Week/qr_reader/static"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Internship\Python_Works\Django_Works\Seventeenth_Week\qr_reader\static" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

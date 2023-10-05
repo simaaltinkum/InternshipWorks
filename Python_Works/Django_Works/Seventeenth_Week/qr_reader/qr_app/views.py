@@ -24,7 +24,7 @@ def read(request):
         ret, frame = cap.read() # Returns boolean if the frame is read correctly, it will be true
 
         if ret:
-            image = os.path.join(f"qr_{str(uuid.uuid4())[:8]}.png") # Naming the image which is photogrgaphed
+            image = os.path.join(f"qr_{str(uuid.uuid4())[:8]}.png") # Naming the image which is photographed
             cv2.imwrite(MEDIA_ROOT + "/" + image, frame) # Saving the  image
             break
 

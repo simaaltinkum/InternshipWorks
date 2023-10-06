@@ -667,7 +667,9 @@
                                 {{ list.type }}
                             </td>
                             <td>
-                                <img src="/media/{{ list.image }}" alt="{{ data.image }}">
+                              <img src=" /media/{{ list.image }} " width="50" height="50"
+                                   onclick="this.src='/media/{{ list.image }} ';this.height=250;this.width=250"
+                                   ondblclick="this.src='/media/{{ list.image }} ';this.width=50; this.height=50;" />
                             </td>
                             <td>
                               {{ list.created_at }}

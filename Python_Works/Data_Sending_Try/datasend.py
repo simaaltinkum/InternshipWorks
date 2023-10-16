@@ -21,3 +21,4 @@ for i in range(5):
     response = requests.post(url, data=data_json, headers=headers)
     pprint.pprint(response.json())
     time.sleep(15)
+CPU Core #1

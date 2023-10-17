@@ -1,6 +1,5 @@
 import json
 import pprint
-import random
 import time
 import psutil
 import requests

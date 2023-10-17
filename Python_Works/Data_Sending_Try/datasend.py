@@ -1,19 +1,27 @@
 import json
+import pprint
 import random
 import time
+import psutil
 import requests
-import pprint
 
 headers = {'Content-type': 'application/json'}
 
-API_KEY = '3a124c81cfc08b5c3dfa28cc'
-url = 'http://iothook.com/api/update/' + API_KEY
+# demo account API_KEY
+# https://iothook.com/en/device/data/100/
+# 100 - Demo Data HTTP
+API_KEY = 'bffd5360f95928bead85ded5'  # write api key
+url = 'http://iothook.com/api/update/'
+a,b,c,d,e= psutil.cpu_times()
 
 for i in range(5):
-    data = {
-        'api_key': API_KEY,
-        'field_1': random.randint(1, 10),
-        'field_2': round(random.uniform(0.0, 10.0), 2),
+    data = {  # write api key
+        'api_key': API_KEY,  # demo hesap #100 - Demo Data HTTP
+        'field_1': b,
+        'field_2': a,
+        'field_3': c,
+        'field_4': d,
+        'field_5': e
     }
 
     data_json = json.dumps(data)

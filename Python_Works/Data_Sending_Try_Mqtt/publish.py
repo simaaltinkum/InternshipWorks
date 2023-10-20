@@ -19,8 +19,7 @@ while True:
         for i in range(10):
             t = int(time.time())
             print(t)
-            ret = client.publish("testtopic", "%s" % t)  # publish
-            ret = client.publish("timestamp", "%s" % t)  # publish
+            ret = client.publish("sima", "%s" % t)  # publish
             print(ret)
             time.sleep(1)
     except:

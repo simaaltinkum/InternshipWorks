@@ -9,5 +9,5 @@ while True:
     client = mqtt.Client()
     client.connect(broker, port)
     data = "try"
-    client.publish(topic, "%s" %data)
+    client.publish(topic, "%s" %data) # publish
     client.disconnect()

@@ -13,15 +13,15 @@ def on_connect(client, userdata, flags, rc):
         print(f"Connection failed with code {rc}")
 
 while True:
-    time.sleep(1)
     msg = f"messages: {msg_count}"
     client = paho.Client()
-    client.on_connect = on_connect()
+    client.on_connect = on_connect
     client.connect(broker, port)
-    client.loop_start()
+    client.loop_start()  # Start the MQTT loop
     result = client.publish(topic, msg)
     print(result)
     status = result[0]
+    time.sleep(1)
 
     if status == 0:
         print(f"Send '{msg}' to topic '{topic}'")

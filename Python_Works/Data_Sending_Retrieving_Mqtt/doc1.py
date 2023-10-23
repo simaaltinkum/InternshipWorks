@@ -32,8 +32,8 @@ def control(client, userdata, num):
 while True:
     client = paho.Client()
     client.username_pw_set("iothookpublic", "iothookpublic")
-    client.connect(broker, port)
     client.on_publish = on_publish
-    # publish()
+    client.connect(broker, port)
+    publish()
     # control()
     client.loop_forever()

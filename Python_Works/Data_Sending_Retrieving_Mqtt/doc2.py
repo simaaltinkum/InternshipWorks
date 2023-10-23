@@ -1,6 +1,7 @@
 import paho.mqtt.client as mqtt
 import time
 
+
 broker = "iothook.com"
 port = 1883
 topic = "test2"
@@ -29,15 +30,14 @@ def publish(client, userdata):
     time.sleep(1)
 
 
+while True:
+    client = mqtt.Client("clientId-HNOt0ZhMl3")
+    client.username_pw_set("iothookpublic", "iothookpublic")
+    client.on_message = on_message
+    client.on_connect = on_connect
 
-client = mqtt.Client("clientId-HNOt0ZhMl3")
-client.username_pw_set("iothookpublic", "iothookpublic")
-client.on_message = on_message
-client.on_connect = on_connect
+    print("connecting to broker")
+    client.connect(broker, port)
 
-print("connecting to broker")
-client.connect(broker, port)
-
-client.subscribe("test2")
-
-client.loop_forever()
+    client.subscribe("test2")
+    client.loop_forever()

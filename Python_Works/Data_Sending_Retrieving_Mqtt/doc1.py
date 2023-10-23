@@ -23,10 +23,11 @@ def control(client, userdata, num):
 
     else:
         print("False")
-    
 
-client = paho.Client()
-client.username_pw_set("iothookpublic", "iothookpublic")
-client.publish = publish
-client.connect(broker, port)
-client.loop_forever()
+
+while True:
+    client = paho.Client()
+    client.username_pw_set("iothookpublic", "iothookpublic")
+    client.publish = publish
+    client.connect(broker, port)
+    client.loop_forever()

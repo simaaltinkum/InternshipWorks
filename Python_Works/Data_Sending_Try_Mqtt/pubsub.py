@@ -4,13 +4,14 @@ import calendar
 
 broker = "iothook.com"
 port = 1883
-topic = "timestamp"
+topic = "test"
 
 
 def publish():
     print("publish")
     timestamp = calendar.timegm(time.gmtime())
     ret = client.publish(topic, timestamp)
+    print(ret)
     time.sleep(1)
 
 
@@ -28,10 +29,11 @@ def on_message(client, userdata, msg):
     publish()
 
 
-client = paho.Client()
-client.username_pw_set("iothookpublic", "iothookpublic")
-client.on_publish = on_publish
-client.on_connect = on_connect
-client.on_message = on_message
-client.connect(broker, port)
-client.loop_forever()
+while True:
+    client = paho.Client()
+    client.username_pw_set("iothookpublic", "iothookpublic")
+    client.on_publish = on_publish
+    client.on_connect = on_connect
+    client.on_message = on_message
+    client.connect(broker, port)
+    client.loop_forever()

@@ -4,7 +4,7 @@ import time
 broker = "iothook.com"
 port = 1883
 topic = "test2"
-
+print("s")
 
 def publish():
     print("publish")
@@ -12,6 +12,10 @@ def publish():
     ret = client.publish(topic, num)
     print(ret)
     time.sleep(1)
+
+
+def on_publish(client, userdata, result):
+    print("on_publish")
 
 
 def control(client, userdata, num):
@@ -28,6 +32,8 @@ def control(client, userdata, num):
 while True:
     client = paho.Client()
     client.username_pw_set("iothookpublic", "iothookpublic")
-    client.publish = publish
     client.connect(broker, port)
+    client.on_publish = on_publish
+    # publish()
+    # control()
     client.loop_forever()

@@ -6,18 +6,25 @@ broker = "iothook.com"
 port = 1883
 topic = "test2"
 userdata = 0
+mqtt_data = {"test2": 0}
 
 def on_connect(client, userdata, flags, rc):
     print(f"Connection status: {rc}")
     if rc == 0:
         client.subscribe("test2")
+        print(userdata)
     else:
         print("Connection failed.")
 
 def on_message(client, userdata, message):
     print(f"Subject: {message.topic} - Message: {message.payload}")
+    # process_message(message.topic, message.payload)
 
-def publish(client):  
+"""def process_message(topic, payload):
+    if topic in mqtt_data:
+        mqtt_data[topic] = int(payload) + 1"""
+
+def publish(client):
     global userdata
     print("publish")
     userdata += 1

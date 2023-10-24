@@ -7,11 +7,11 @@ port = 1883
 topic = "test2"
 print("s")
 
-def publish():
+def publish(client):
     print("publish")
     while True:
-        num = input("Login a number: ")
-        ret = client.publish(topic, num)
+        userdata = input("Login a number: ")
+        ret = client.publish(topic, userdata)
         print(ret)
         time.sleep(1)
 
@@ -37,24 +37,30 @@ def control(client, userdata, num):
     else:
         print("False")
 
-def mqtt_client_thread():
-    global client
-    client = paho.Client()
+"""def mqtt_client_thread(client):
+    
     client.username_pw_set("iothookpublic", "iothookpublic")
     client.on_publish = on_publish
     client.on_connect = on_connect
     client.on_message = on_message
     client.connect(broker, port)
-    client.loop_forever()
+    client.loop_forever()"""
+
+client = paho.Client()
+client.username_pw_set("iothookpublic", "iothookpublic")
+client.on_publish = on_publish
+client.on_connect = on_connect
+client.on_message = on_message
+client.connect(broker, port)
 
 
-mqtt_thread = threading.Thread(target=mqtt_client_thread)
-mqtt_thread.start()
+"""mqtt_thread = threading.Thread(target=mqtt_client_thread, args=[client])
+mqtt_thread.start()"""
 
 
-publish_thread = threading.Thread(target=publish)
+publish_thread = threading.Thread(target=publish, args= [client])
 publish_thread.start()
+client.loop_forever()
 
-
-mqtt_thread.join()
-publish_thread.join()
+"""mqtt_thread.join()
+publish_thread.join()"""

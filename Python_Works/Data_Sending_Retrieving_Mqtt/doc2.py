@@ -1,57 +1,32 @@
-import paho.mqtt.client as mqtt
-import time
-import threading
+import paho.mqtt.client as paho
 
 broker = "iothook.com"
 port = 1883
 topic = "test2"
-userdata = 0
-mqtt_data = {"test2": 0}
+print("s")
+
 
 def on_connect(client, userdata, flags, rc):
-    print(f"Connection status: {rc}")
-    if rc == 0:
-        client.subscribe("test2")
-        print(userdata)
+    print("on_connect ", str(rc))
+    print(userdata)
+    client.subscribe(topic, qos=0)
+
+
+def on_message(client, userdata, msg):
+    print("on_message", msg.topic, str(msg.payload))
+    print(msg.payload[0])
+    if msg.payload[0] == 97:
+        ret = client.publish(msg.topic, msg.payload)
+
     else:
-        print("Connection failed.")
+        print("can not publish")
 
-def on_message(client, userdata, message):
-    print(f"Subject: {message.topic} - Message: {message.payload}")
-    # process_message(message.topic, message.payload)
 
-"""def process_message(topic, payload):
-    if topic in mqtt_data:
-        mqtt_data[topic] = int(payload) + 1"""
 
-def publish(client):
-    global userdata
-    print("publish")
-    userdata += 1
-    ret = client.publish(topic, userdata)
-    print(ret)
-    time.sleep(1)
+client = paho.Client()
+client.username_pw_set("iothookpublic", "iothookpublic")
+client.on_connect = on_connect
+client.on_message = on_message
+client.connect(broker, port)
+client.loop_forever()
 
-def on_publish(client, userdata, result):
-    print("on_publish")
-
-def mqtt_thread():
-    client = mqtt.Client("clientId-HNOt0ZhMl3")
-    client.username_pw_set("iothookpublic", "iothookpublic")
-    client.on_publish = on_publish
-    client.on_message = on_message
-    client.on_connect = on_connect
-
-    print("connecting to broker")
-    client.connect(broker, port)
-    client.subscribe("test2")
-    client.loop_start()
-
-    while True:
-        publish(client)
-        time.sleep(1)
-
-if __name__ == "__main__":
-    mqtt_thread = threading.Thread(target=mqtt_thread)
-    mqtt_thread.start()
-    mqtt_thread.join()

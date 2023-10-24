@@ -28,14 +28,14 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, message):
     print(f"Subject: {message.topic} - Message: {message.payload}")
 
-def control(client, userdata, num):
+"""def control(client, userdata, num):
     if userdata == num + 1:
         print("True")
         ret = client.publish(topic, num)
         print(ret)
         time.sleep(1)
     else:
-        print("False")
+        print("False")"""
 
 """def mqtt_client_thread(client):
     

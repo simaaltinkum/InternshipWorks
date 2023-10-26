@@ -1,3 +1,5 @@
+import random
+
 import paho.mqtt.client as paho
 import time
 import threading
@@ -22,7 +24,7 @@ def publish_thread_def():
     client.connect(broker, port)
 
     while True:
-        userdata = input("Login a number: ")
+        userdata = random.randint(0,40)
         client.publish(topic, userdata)
         time.sleep(1)
     # client.loop_forever()

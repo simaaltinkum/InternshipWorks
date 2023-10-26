@@ -1,38 +1,21 @@
-import paho.mqtt.client as paho
+import paho.mqtt.client as mqtt
+import time
 
 broker = "iothook.com"
 port = 1883
-topic = "test2"
-print("s")
-
-def on_connect():
-    print("on_connect")
-    client.subscribe(topic, qos=0)
-    print("çıktı")
-
-def on_message(msg):
-    print("on_message", msg.topic, str(msg.payload))
-
-    if msg.payload[0] == 97:
-        client.publish(msg.topic, msg.payload)
-
-    else:
-        print("can not publish")
-        print("çıktı msg")
 
 
+def on_message(client, userdata, message):
+    print("message received ", str(message.payload.decode("utf-8")))
 
-client = paho.Client()
+
+client = mqtt.Client("clientId-sampomjx7S")
 client.username_pw_set("iothookpublic", "iothookpublic")
-client.on_connect = on_connect
 client.on_message = on_message
+
+print("connecting to broker")
 client.connect(broker, port)
-print("burası bitti")
-client.loop_start()
-# client.loop_forever()
 
-# sub_thread = threading.Thread(target=sub_thread_def)
-# sub_thread.start()
+client.subscribe("test2")
 
-# pub_thread = threading.Thread(target=pub_thread_def)
-# pub_thread.start()
+client.loop_forever()

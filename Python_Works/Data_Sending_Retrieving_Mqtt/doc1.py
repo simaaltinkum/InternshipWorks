@@ -9,27 +9,22 @@ topic = "test2"
 print("s")
 userdata = None
 
+def on_publish(client, user_data, result):
+    print("on_publish")
+
 def publish_thread_def():
-    print("publish thr def çalıştı")
+    print("publish_thread_def çalıştı")
     global userdata
-    def on_publish(client, userdata, result):
-
-        while True:
-            print("while")
-            userdata = input("Login a number: ")
-            client.publish(topic, userdata)
-            time.sleep(1)
-            print(userdata)
-
-
 
     client = paho.Client()
     client.username_pw_set("iothookpublic", "iothookpublic")
     client.on_publish = on_publish
     client.connect(broker, port)
 
-    client.publish(topic,userdata)
-    print(userdata)
+    while True:
+        userdata = input("Login a number: ")
+        client.publish(topic, userdata)
+        time.sleep(1)
     # client.loop_forever()
 
 

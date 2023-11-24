@@ -1,0 +1,26 @@
+<form method="post">
+    {% csrf_token %}
+    {{ form.category }}
+    {{ form.subcategory }}
+    <input type="submit" value="Submit">
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#id_category").change(function(){
+            var url = $("#myForm").attr("data-subcategories-url");
+            var categoryId = $(this).val();
+
+            $.ajax({
+                url: url,
+                data: {
+                    'category_id': categoryId
+                },
+                success: function(data){
+                    $("#id_subcategory").html(data);
+                }
+            });
+        });
+    });
+</script>

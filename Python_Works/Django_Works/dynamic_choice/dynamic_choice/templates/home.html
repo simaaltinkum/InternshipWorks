@@ -1,8 +1,9 @@
-<form method="post">
+<form method="post" action="{% url 'save_choices' %}">
     {% csrf_token %}
     {{ form.category }}
     {{ form.subcategory }}
-    <input type="submit" value="Submit">
+    {{ form.selected_datetime }}
+    <button type="submit">Submit</button>
 </form>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -18,10 +19,8 @@
                 'category_id': category_id
             },
             success: function(data){
-
                 var subcategoryField = $("#id_subcategory");
                 subcategoryField.empty();
-
 
                 data.subcategories.forEach(function(subcategory){
                     subcategoryField.append(
@@ -37,7 +36,39 @@
         });
     });
 
+    // Submitting the form when category and subcategory are selected
+    $("form").submit(function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        var selectedCategory = $("#id_category").val();
+        var selectedSubcategory = $("#id_subcategory").val();
+
+        // Make sure both category and subcategory are selected before submitting
+        if (selectedCategory && selectedSubcategory) {
+            $.ajax({
+                url: '/save_choices/',
+                type: 'POST',
+                data: {
+                    'csrfmiddlewaretoken': '{{ csrf_token }}', // Include the CSRF token
+                    'category': selectedCategory,
+                    'subcategory': selectedSubcategory
+                },
+                success: function(response) {
+                    // Handle success, e.g., show a message to the user
+                    alert('Choices saved successfully!');
+                },
+                error: function(error){
+                    console.log(error);
+                    // Handle error, e.g., show an error message to the user
+                    alert('Failed to save choices. Please try again.');
+                }
+            });
+        } else {
+            // Show an error message if category or subcategory is not selected
+            alert('Please select both category and subcategory.');
+        }
+    });
+
     $("#id_category").change();
 });
-
 </script>

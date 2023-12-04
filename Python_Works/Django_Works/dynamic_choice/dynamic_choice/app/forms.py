@@ -1,5 +1,7 @@
 from django import forms
-from .models import Category, SubCategory
+from .models import Category, SubCategory, Saved
+from django.forms import ModelForm
+
 
 class MyForm(forms.Form):
     category = forms.ModelChoiceField(queryset=Category.objects.all(), empty_label=None)
@@ -15,3 +17,9 @@ class MyForm(forms.Form):
                 self.fields['subcategory'].queryset = SubCategory.objects.filter(category_id=category_id).order_by('name')
             except (ValueError, TypeError):
                 pass
+
+
+class SaveForm(ModelForm):
+    class Meta:
+        model = Saved
+        fields = ['selected_datetime', 'category', 'subcategory']

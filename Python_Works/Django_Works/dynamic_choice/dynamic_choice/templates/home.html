@@ -5,22 +5,39 @@
     <input type="submit" value="Submit">
 </form>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
     $(document).ready(function(){
-        $("#id_category").change(function(){
-            var url = $("#myForm").attr("data-subcategories-url");
-            var categoryId = $(this).val();
+    $("#id_category").change(function(){
+        var category_id = $(this).val();
+        var url = '/get_subcategories/';
+        $.ajax({
+            url: url,
+            type: 'GET',
+            data: {
+                'category_id': category_id
+            },
+            success: function(data){
 
-            $.ajax({
-                url: url,
-                data: {
-                    'category_id': categoryId
-                },
-                success: function(data){
-                    $("#id_subcategory").html(data);
-                }
-            });
+                var subcategoryField = $("#id_subcategory");
+                subcategoryField.empty();
+
+
+                data.subcategories.forEach(function(subcategory){
+                    subcategoryField.append(
+                        $("<option></option>")
+                        .attr("value", subcategory.id)
+                        .text(subcategory.name)
+                    );
+                });
+            },
+            error: function(error){
+                console.log(error);
+            }
         });
     });
+
+    $("#id_category").change();
+});
+
 </script>

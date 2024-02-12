@@ -5,46 +5,45 @@ import time
 import psutil
 import requests
 
-def lamba_yak():
-    while True:
-        lamba = random.randint(0,2)
 
-        kirmizi = False
-        yesil = False
-        sari = False
+while True:
+    lamba = random.randint(0, 2)
 
-        if lamba == 0:
-            kirmizi = True
-            print('kırmızı yanıyor')
+    kirmizi = False
+    yesil = False
+    sari = False
 
-        elif lamba == 1:
-            yesil == True
-            print('yeşil yanıyor')
+    if lamba == 0:
+        kirmizi = True
+        print('kırmızı yanıyor')
 
-        else:
-            sari = True
-            print('sarı yanıyor')
+    elif lamba == 1:
+        yesil = True
+        print('yeşil yanıyor')
 
-        headers = {'Content-type': 'application/json'}
+    else:
+        sari = True
+        print('sarı yanıyor')
 
-        # demo account API_KEY
-        # https://iothook.com/en/device/data/100/
-        # 100 - Demo Data HTTP
-        API_KEY = '1c1094835fe305ad04096223'  # write api key
-        url = 'http://iothook.com/api/update/'
-        kirmizi, yesil, sari = psutil.cpu_times()
+    headers = {'Content-type': 'application/json'}
 
-        for i in range(3):
-            data = {  # write api key
-                'api_key': API_KEY,  # demo hesap #100 - Demo Data HTTP
-                'kırmızı': kirmizi,
-                'yeşil': yesil,
-                'sarı': sari,
-            }
+    # demo account API_KEY
+    # https://iothook.com/en/device/data/100/
+    # 100 - Demo Data HTTP
+    API_KEY = '456aeebe9c317810fe7b2245'  # write api key
+    url = 'https://iothook.com/api/update/?api_key=456aeebe9c317810fe7b2245&field_1=10&field_2=20&field_3=30'
 
-            data_json = json.dumps(data)
+    data = {
+        'api_key': API_KEY,
+        'kırmızı': kirmizi,
+        'yeşil': yesil,
+        'sarı': sari,
+    }
 
-            response = requests.post(url, data=data_json, headers=headers)
-            pprint.pprint(response.json())
-            time.sleep(1)
-lamba_yak()
+    data_json = json.dumps(data)
+
+    response = requests.post(url, data=data_json, headers=headers)
+    pprint.pprint(response.json())
+    time.sleep(1)
+
+# lamba_yak()

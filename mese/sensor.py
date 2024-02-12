@@ -15,14 +15,17 @@ while True:
 
     if lamba == 0:
         kirmizi = True
+        print(int(kirmizi))
         print('kırmızı yanıyor')
 
     elif lamba == 1:
         yesil = True
+        print(int(yesil))
         print('yeşil yanıyor')
 
     else:
         sari = True
+        print(int(sari))
         print('sarı yanıyor')
 
     headers = {'Content-type': 'application/json'}
@@ -35,15 +38,14 @@ while True:
 
     data = {
         'api_key': API_KEY,
-        'kırmızı': kirmizi,
-        'yeşil': yesil,
-        'sarı': sari,
+        'field_1': int(kirmizi),
+        'field_2': int(yesil),
+        'field_3': int(sari),
     }
 
+    print(data)
     data_json = json.dumps(data)
 
     response = requests.post(url, data=data_json, headers=headers)
     pprint.pprint(response.json())
-    time.sleep(1)
-
-# lamba_yak()
+    # time.sleep(1)

@@ -1,0 +1,12 @@
+D:\Internship\Dotnet_Works\EkranIothook\bin\Debug\EkranIothook.exe.config
+D:\Internship\Dotnet_Works\EkranIothook\bin\Debug\EkranIothook.exe
+D:\Internship\Dotnet_Works\EkranIothook\bin\Debug\EkranIothook.pdb
+D:\Internship\Dotnet_Works\EkranIothook\obj\Debug\EkranIothook.csproj.AssemblyReference.cache
+D:\Internship\Dotnet_Works\EkranIothook\obj\Debug\EkranIothook.Form1.resources
+D:\Internship\Dotnet_Works\EkranIothook\obj\Debug\EkranIothook.Form2.resources
+D:\Internship\Dotnet_Works\EkranIothook\obj\Debug\EkranIothook.Form3.resources
+D:\Internship\Dotnet_Works\EkranIothook\obj\Debug\EkranIothook.Properties.Resources.resources
+D:\Internship\Dotnet_Works\EkranIothook\obj\Debug\EkranIothook.csproj.GenerateResource.cache
+D:\Internship\Dotnet_Works\EkranIothook\obj\Debug\EkranIothook.csproj.CoreCompileInputs.cache
+D:\Internship\Dotnet_Works\EkranIothook\obj\Debug\EkranIothook.exe
+D:\Internship\Dotnet_Works\EkranIothook\obj\Debug\EkranIothook.pdb

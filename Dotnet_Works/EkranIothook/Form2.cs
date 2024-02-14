@@ -29,9 +29,35 @@ namespace EkranIothook
 
             string startDate = textBox1.Text;
             string endDate = textBox2.Text;
+            string apiKey = "1c1094835fe305ad04096223";
 
-            
-            
+            string apiUrl = $"https://iothook.com/api/device/?api_key=1c1094835fe305ad04096223";
+
+            using (HttpClient httpClient = new HttpClient())
+            {
+                try
+                {
+                    HttpResponseMessage response = await httpClient.GetAsync(apiUrl);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string responseData = await response.Content.ReadAsStringAsync();
+                       
+                        MessageBox.Show(responseData);
+                    }
+                    else
+                    {
+                        MessageBox.Show("HTTP Error: " + response.StatusCode);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+
+
+
             Form3 fm3 = new Form3();
             fm3.Show();
 
@@ -69,8 +95,8 @@ namespace EkranIothook
             MessageBox.Show(jsonFormatted);
 
 
-            DateTime startDate = new DateTime(2023, 1, 1);
-            DateTime endDate = new DateTime(2023, 1, 31);
+            // DateTime startDate = new DateTime(2023, 1, 1);
+            // DateTime endDate = new DateTime(2023, 1, 31);
 
         }
     }

@@ -40,7 +40,7 @@ namespace EkranIothook
 
             HttpClient httpClient = new HttpClient();
             HttpRequestMessage request = new HttpRequestMessage();
-            request.RequestUri = new Uri("https://iothook.com/api/device/?api_key=1c1094835fe305ad04096223&results=2");
+            request.RequestUri = new Uri("https://iothook.com/api/device/?api_key=1c1094835fe305ad04096223");
             request.Method = HttpMethod.Get;
             request.Headers.Add("api_key", "1c1094835fe305ad04096223");
             HttpResponseMessage response = await httpClient.SendAsync(request);

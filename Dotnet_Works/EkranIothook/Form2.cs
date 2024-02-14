@@ -21,10 +21,20 @@ namespace EkranIothook
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
+
+            // DateTime startDate;
+            // DateTime endDate;
+
+            string startDate = textBox1.Text;
+            string endDate = textBox2.Text;
+
+            
+            
             Form3 fm3 = new Form3();
             fm3.Show();
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -53,7 +63,7 @@ namespace EkranIothook
             // MessageBox.Show(responseString);
 
             dynamic jsonData = JsonConvert.DeserializeObject(responseString);
-            string jsonFormatted = JsonConvert.SerializeObject(jsonData, Formatting.Indented);
+            string jsonFormatted = JsonConvert.SerializeObject(jsonData, Newtonsoft.Json.Formatting.Indented);
 
             // JSON formatına dönüştürülmüş veriyi göster
             MessageBox.Show(jsonFormatted);

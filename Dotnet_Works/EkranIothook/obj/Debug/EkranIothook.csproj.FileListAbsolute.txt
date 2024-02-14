@@ -10,3 +10,6 @@ D:\Internship\Dotnet_Works\EkranIothook\obj\Debug\EkranIothook.csproj.GenerateRe
 D:\Internship\Dotnet_Works\EkranIothook\obj\Debug\EkranIothook.csproj.CoreCompileInputs.cache
 D:\Internship\Dotnet_Works\EkranIothook\obj\Debug\EkranIothook.exe
 D:\Internship\Dotnet_Works\EkranIothook\obj\Debug\EkranIothook.pdb
+D:\Internship\Dotnet_Works\EkranIothook\bin\Debug\Newtonsoft.Json.dll
+D:\Internship\Dotnet_Works\EkranIothook\bin\Debug\Newtonsoft.Json.xml
+D:\Internship\Dotnet_Works\EkranIothook\obj\Debug\EkranIothook.csproj.CopyComplete

@@ -47,10 +47,11 @@ namespace EkranIothook
             var responseString = await response.Content.ReadAsStringAsync();
             var statusCode = response.StatusCode;
 
+            int intValue = int.Parse(responseString);
 
-            chartGraph.Series["Yanma Sayısı"].Points.AddXY("Kırmızı", 1);
-            chartGraph.Series["Yanma Sayısı"].Points.AddXY("Yeşil", 5);
-            chartGraph.Series["Yanma Sayısı"].Points.AddXY("Sarı", 4);
+            chartGraph.Series["Yanma Sayısı"].Points.AddXY("Kırmızı", intValue);
+            chartGraph.Series["Yanma Sayısı"].Points.AddXY("Yeşil", intValue);
+            chartGraph.Series["Yanma Sayısı"].Points.AddXY("Sarı", intValue);
 
         }
     }

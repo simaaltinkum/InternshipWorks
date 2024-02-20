@@ -26,7 +26,12 @@ namespace EkranIothook
         {
             try
             {
-                string apiUrl = $"https://iothook.com/api/device/?api_key=1c1094835fe305ad04096223";
+                string apiKey = "1c1094835fe305ad04096223";
+                string startDate = textBox1.Text; // Başlangıç tarihi
+                string endDate = textBox2.Text; // Bitiş tarihi
+
+                // API isteği için URL oluştur
+                string apiUrl = $"https://iothook.com/api/device/?api_key={apiKey}&start_date={startDate}&end_date={endDate}";
 
                 using (HttpClient httpClient = new HttpClient())
                 {
@@ -73,9 +78,15 @@ namespace EkranIothook
             string field_5 = member.field_5;
             string field_6 = member.field_6;
 
-            chartGraph.Series["Yanma Sayısı"].Points.AddXY("Kırmızı", field_4);
-            chartGraph.Series["Yanma Sayısı"].Points.AddXY("Yeşil", field_5);
-            chartGraph.Series["Yanma Sayısı"].Points.AddXY("Sarı", field_6);
+            double total = Convert.ToDouble(field_4) + Convert.ToDouble(field_5) + Convert.ToDouble(field_6);
+
+            int percentageField4 = (int)((Convert.ToDouble(field_4) / total) * 100);
+            int percentageField5 = (int)((Convert.ToDouble(field_5) / total) * 100);
+            int percentageField6 = (int)((Convert.ToDouble(field_6) / total) * 100);
+
+            chart2.Series["Yanma Sayısı"].Points.Add(new DataPoint(0, Convert.ToDouble(field_4)) { AxisLabel = $"Kırmızı (%{percentageField4})" });
+            chart2.Series["Yanma Sayısı"].Points.Add(new DataPoint(0, Convert.ToDouble(field_5)) { AxisLabel = $"Yeşil (%{percentageField5})" });
+            chart2.Series["Yanma Sayısı"].Points.Add(new DataPoint(0, Convert.ToDouble(field_6)) { AxisLabel = $"Sarı (%{percentageField6})" });
         }
 
 
@@ -117,52 +128,12 @@ namespace EkranIothook
                 string responseString = await response.Content.ReadAsStringAsync();
                 var statusCode = response.StatusCode;
 
-            //     MessageBox.Show(responseString);
-
-                // string jsonString = "{\"Name\":\"John Doe\",\"Bio\":\"Software developer\",\"JoinDate\":\"2023-05-31T20:29:33-04:00\",\"Author\":true}";
-                // IothookMember member = JsonSerializer.Deserialize<IothookMember>(jsonString);
-
-
-            //     Console.WriteLine($"Field1: {member.Field1}");
-               // Console.WriteLine($"Field2: {member.Field2}");
-               // Console.WriteLine($"Field3: {member.Field3}");
             }
-        }
-
-        private void chartGraph_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void chart2_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private async void button2_Click(object sender, EventArgs e)
-        {
-            HttpClient httpClient = new HttpClient();
-
-            // HttpRequestMessage oluşturulması
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "https://iothook.com/api/device/?api_key=1c1094835fe305ad04096223&results=1");
-            request.Headers.Add("api_key", "1c1094835fe305ad04096223");
-
-            HttpResponseMessage response = await httpClient.SendAsync(request);
-
-            var responseString = await response.Content.ReadAsStringAsync();
-            var statusCode = response.StatusCode;
-
-            responseString = responseString.Replace("[", "").Replace("]", "");
-
-            IothookMember member = JsonConvert.DeserializeObject<IothookMember>(responseString);
-            string field_4 = member.field_4;
-            string field_5 = member.field_5;
-            string field_6 = member.field_6;
-
-            chart2.Series["Yanma Sayısı"].Points.Add(new DataPoint(0, Convert.ToDouble(field_4)) { AxisLabel = "Kırmızı" });
-            chart2.Series["Yanma Sayısı"].Points.Add(new DataPoint(0, Convert.ToDouble(field_5)) { AxisLabel = "Yeşil" });
-            chart2.Series["Yanma Sayısı"].Points.Add(new DataPoint(0, Convert.ToDouble(field_6)) { AxisLabel = "Sarı" });
-        
         }
     }
 }

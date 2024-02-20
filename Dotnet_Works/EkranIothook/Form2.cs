@@ -134,6 +134,3 @@ namespace EkranIothook
         }
     }
 }
-
-
-

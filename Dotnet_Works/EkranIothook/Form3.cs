@@ -13,14 +13,31 @@ namespace EkranIothook
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            // Butona tıklandığında örnek verileri ekle
-            chart2.Series["Yanma Sayısı"].Points.AddXY("Kırmızı", 1);
-            chart2.Series["Yanma Sayısı"].Points.AddXY("Yeşil", 2);
-            chart2.Series["Yanma Sayısı"].Points.AddXY("Sarı", 3);
-        }
+        private async void button1_Click(object sender, EventArgs e)
 
+        {
+            HttpClient httpClient = new HttpClient();
+
+            // HttpRequestMessage oluşturulması
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "https://iothook.com/api/device/?api_key=1c1094835fe305ad04096223&results=1");
+            request.Headers.Add("api_key", "1c1094835fe305ad04096223");
+
+            HttpResponseMessage response = await httpClient.SendAsync(request);
+
+            var responseString = await response.Content.ReadAsStringAsync();
+            var statusCode = response.StatusCode;
+
+            responseString = responseString.Replace("[", "").Replace("]", "");
+
+            IothookMember member = JsonConvert.DeserializeObject<IothookMember>(responseString);
+            string field_4 = member.field_4;
+            string field_5 = member.field_5;
+            string field_6 = member.field_6;
+
+            chart2.Series["Yanma Sayısı"].Points.Add(new DataPoint(0, Convert.ToDouble(field_4)) { AxisLabel = "Kırmızı" });
+            chart2.Series["Yanma Sayısı"].Points.Add(new DataPoint(0, Convert.ToDouble(field_5)) { AxisLabel = "Yeşil" });
+            chart2.Series["Yanma Sayısı"].Points.Add(new DataPoint(0, Convert.ToDouble(field_6)) { AxisLabel = "Sarı" });
+        }
         private async void Form3_Load(object sender, EventArgs e)
         {
             HttpClient httpClient = new HttpClient();
@@ -43,7 +60,7 @@ namespace EkranIothook
 
             chartGraph.Series["Yanma Sayısı"].Points.AddXY("Kırmızı", field_4);
             chartGraph.Series["Yanma Sayısı"].Points.AddXY("Yeşil", field_5);
-            chartGraph.Series["Yanma Sayısı"].Points.AddXY("Sarı", field_5);
+            chartGraph.Series["Yanma Sayısı"].Points.AddXY("Sarı", field_6);
 
             // MessageBox.Show("Kırmızı: " + field_4 + " Yeşil: " + field_5 + " Sarı: " + field_6);
 
@@ -58,10 +75,11 @@ namespace EkranIothook
             public string field_6 { get; set; }
         }
 
-        private void chart2_Click(object sender, EventArgs e)
+        private async void chart2_Click(object sender, EventArgs e)
         {
-
+            
         }
+
 
         //    private async void Form3_Load(object sender, EventArgs e)
         //    {

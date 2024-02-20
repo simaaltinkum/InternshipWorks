@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -23,19 +24,11 @@ namespace EkranIothook
 
         private async void button1_Click(object sender, EventArgs e)
         {
-
-            // DateTime startDate;
-            // DateTime endDate;
-
-            string startDate = textBox1.Text;
-            string endDate = textBox2.Text;
-            string apiKey = "1c1094835fe305ad04096223";
-
-            string apiUrl = $"https://iothook.com/api/device/?api_key=1c1094835fe305ad04096223";
-
-            using (HttpClient httpClient = new HttpClient())
+            try
             {
-                try
+                string apiUrl = $"https://iothook.com/api/device/?api_key=1c1094835fe305ad04096223";
+
+                using (HttpClient httpClient = new HttpClient())
                 {
                     HttpResponseMessage response = await httpClient.GetAsync(apiUrl);
 
@@ -43,25 +36,37 @@ namespace EkranIothook
                     {
                         string responseData = await response.Content.ReadAsStringAsync();
 
-                        MessageBox.Show(responseData);
+                        // Verileri görselleştirme işlemi için ayrı bir metodu çağır
+                        ProcessResponseData(responseData);
                     }
                     else
                     {
                         MessageBox.Show("HTTP Error: " + response.StatusCode);
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
             }
-
-
-
-            Form3 fm3 = new Form3();
-            fm3.Show();
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
+
+        // HttpResponse verisini işlemek için ayrı bir metot
+        private void ProcessResponseData(string responseData)
+        {
+            // JSON veriyi dönüştür
+            IothookMember member = JsonConvert.DeserializeObject<IothookMember>(responseData);
+            string field_4 = member.field_4;
+            string field_5 = member.field_5;
+            string field_6 = member.field_6;
+
+            // Grafik üzerine verileri ekle
+            chart2.Series["Yanma Sayısı"].Points.Clear();
+            chart2.Series["Yanma Sayısı"].Points.Add(new DataPoint(0, Convert.ToDouble(field_4)) { AxisLabel = "Kırmızı" });
+            chart2.Series["Yanma Sayısı"].Points.Add(new DataPoint(0, Convert.ToDouble(field_5)) { AxisLabel = "Yeşil" });
+            chart2.Series["Yanma Sayısı"].Points.Add(new DataPoint(0, Convert.ToDouble(field_6)) { AxisLabel = "Sarı" });
+        }
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -75,6 +80,8 @@ namespace EkranIothook
 
         private async void Form2_Load(object sender, EventArgs e)
         {
+           
+            // HttpRequestMessage oluşturulması
             HttpClient httpClient = new HttpClient();
 
             // HttpRequestMessage oluşturulması
@@ -93,8 +100,10 @@ namespace EkranIothook
             string field_5 = member.field_5;
             string field_6 = member.field_6;
 
-            MessageBox.Show("Kırmızı: " + field_4 + " Yeşil: " + field_5 + " Sarı: " + field_6);
-            
+            chartGraph.Series["Yanma Sayısı"].Points.AddXY("Kırmızı", field_4);
+            chartGraph.Series["Yanma Sayısı"].Points.AddXY("Yeşil", field_5);
+            chartGraph.Series["Yanma Sayısı"].Points.AddXY("Sarı", field_6);
+
             // JSON formatına dönüştürülmüş veriyi göster
             //  MessageBox.Show(responseString);
         }
@@ -131,6 +140,42 @@ namespace EkranIothook
                // Console.WriteLine($"Field2: {member.Field2}");
                // Console.WriteLine($"Field3: {member.Field3}");
             }
+        }
+
+        private void chartGraph_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void button2_Click(object sender, EventArgs e)
+        {
+            HttpClient httpClient = new HttpClient();
+
+            // HttpRequestMessage oluşturulması
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "https://iothook.com/api/device/?api_key=1c1094835fe305ad04096223&results=1");
+            request.Headers.Add("api_key", "1c1094835fe305ad04096223");
+
+            HttpResponseMessage response = await httpClient.SendAsync(request);
+
+            var responseString = await response.Content.ReadAsStringAsync();
+            var statusCode = response.StatusCode;
+
+            responseString = responseString.Replace("[", "").Replace("]", "");
+
+            IothookMember member = JsonConvert.DeserializeObject<IothookMember>(responseString);
+            string field_4 = member.field_4;
+            string field_5 = member.field_5;
+            string field_6 = member.field_6;
+
+            chart2.Series["Yanma Sayısı"].Points.Add(new DataPoint(0, Convert.ToDouble(field_4)) { AxisLabel = "Kırmızı" });
+            chart2.Series["Yanma Sayısı"].Points.Add(new DataPoint(0, Convert.ToDouble(field_5)) { AxisLabel = "Yeşil" });
+            chart2.Series["Yanma Sayısı"].Points.Add(new DataPoint(0, Convert.ToDouble(field_6)) { AxisLabel = "Sarı" });
+        
         }
     }
 }

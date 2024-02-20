@@ -42,7 +42,7 @@ namespace EkranIothook
                     if (response.IsSuccessStatusCode)
                     {
                         string responseData = await response.Content.ReadAsStringAsync();
-                       
+
                         MessageBox.Show(responseData);
                     }
                     else
@@ -75,29 +75,65 @@ namespace EkranIothook
 
         private async void Form2_Load(object sender, EventArgs e)
         {
-
             HttpClient httpClient = new HttpClient();
-            HttpRequestMessage request = new HttpRequestMessage();
-            request.RequestUri = new Uri("https://iothook.com/api/device/?api_key=1c1094835fe305ad04096223&results=2");
-            request.Method = HttpMethod.Get;
+
+            // HttpRequestMessage oluşturulması
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "https://iothook.com/api/device/?api_key=1c1094835fe305ad04096223&results=1");
             request.Headers.Add("api_key", "1c1094835fe305ad04096223");
+
             HttpResponseMessage response = await httpClient.SendAsync(request);
+
             var responseString = await response.Content.ReadAsStringAsync();
             var statusCode = response.StatusCode;
 
-            // string output = JsonConvert.SerializeObject(responseString);
-            // MessageBox.Show(responseString);
+            responseString = responseString.Replace("[", "").Replace("]", "");
 
-            dynamic jsonData = JsonConvert.DeserializeObject(responseString);
-            string jsonFormatted = JsonConvert.SerializeObject(jsonData, Newtonsoft.Json.Formatting.Indented);
+            IothookMember member = JsonConvert.DeserializeObject<IothookMember>(responseString);
+            string field_4 = member.field_4;
+            string field_5 = member.field_5;
+            string field_6 = member.field_6;
 
+            MessageBox.Show("Kırmızı: " + field_4 + " Yeşil: " + field_5 + " Sarı: " + field_6);
+            
             // JSON formatına dönüştürülmüş veriyi göster
-            MessageBox.Show(jsonFormatted);
+            //  MessageBox.Show(responseString);
+        }
+
+        public class IothookMember
+        {
+            public string field_4 { get; set; }
+            public string field_5 { get; set; }
+            public string field_6 { get; set; }
+        }
+
+        public class Program
+        {
+            public static async Task Main()
+            {
+                HttpClient httpClient = new HttpClient();
+
+                // HttpRequestMessage oluşturulması
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "https://iothook.com/api/device/?api_key=1c1094835fe305ad04096223&results=2");
+                request.Headers.Add("api_key", "1c1094835fe305ad04096223");
+
+                HttpResponseMessage response = await httpClient.SendAsync(request);
+
+                string responseString = await response.Content.ReadAsStringAsync();
+                var statusCode = response.StatusCode;
+
+            //     MessageBox.Show(responseString);
+
+                // string jsonString = "{\"Name\":\"John Doe\",\"Bio\":\"Software developer\",\"JoinDate\":\"2023-05-31T20:29:33-04:00\",\"Author\":true}";
+                // IothookMember member = JsonSerializer.Deserialize<IothookMember>(jsonString);
 
 
-            // DateTime startDate = new DateTime(2023, 1, 1);
-            // DateTime endDate = new DateTime(2023, 1, 31);
-
+            //     Console.WriteLine($"Field1: {member.Field1}");
+               // Console.WriteLine($"Field2: {member.Field2}");
+               // Console.WriteLine($"Field3: {member.Field3}");
+            }
         }
     }
 }
+
+
+

@@ -1,0 +1,13 @@
+D:\Internship\Dotnet_Works\Anasayfa\bin\Debug\Anasayfa.exe.config
+D:\Internship\Dotnet_Works\Anasayfa\bin\Debug\Anasayfa.exe
+D:\Internship\Dotnet_Works\Anasayfa\bin\Debug\Anasayfa.pdb
+D:\Internship\Dotnet_Works\Anasayfa\obj\Debug\Anasayfa.csproj.AssemblyReference.cache
+D:\Internship\Dotnet_Works\Anasayfa\obj\Debug\Anasayfa.Form1.resources
+D:\Internship\Dotnet_Works\Anasayfa\obj\Debug\Anasayfa.Properties.Resources.resources
+D:\Internship\Dotnet_Works\Anasayfa\obj\Debug\Anasayfa.csproj.GenerateResource.cache
+D:\Internship\Dotnet_Works\Anasayfa\obj\Debug\Anasayfa.csproj.CoreCompileInputs.cache
+D:\Internship\Dotnet_Works\Anasayfa\obj\Debug\Anasayfa.exe
+D:\Internship\Dotnet_Works\Anasayfa\obj\Debug\Anasayfa.pdb
+D:\Internship\Dotnet_Works\Anasayfa\obj\Debug\Anasayfa.Form2.resources
+D:\Internship\Dotnet_Works\Anasayfa\obj\Debug\Anasayfa.Form3.resources
+D:\Internship\Dotnet_Works\Anasayfa\obj\Debug\Anasayfa.Form4.resources

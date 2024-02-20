@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.chartGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button1 = new System.Windows.Forms.Button();
@@ -45,43 +45,43 @@
             // 
             // chartGraph
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartGraph.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartGraph.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chartGraph.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartGraph.Legends.Add(legend3);
             this.chartGraph.Location = new System.Drawing.Point(28, 35);
             this.chartGraph.Name = "chartGraph";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Yanma Sayısı";
-            this.chartGraph.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Yanma Sayısı";
+            this.chartGraph.Series.Add(series3);
             this.chartGraph.Size = new System.Drawing.Size(459, 411);
             this.chartGraph.TabIndex = 0;
             this.chartGraph.Text = "chart1";
-            title1.Name = "Graph";
-            title1.Text = "Chart Graph";
-            this.chartGraph.Titles.Add(title1);
-            // this.chartGraph.Click += new System.EventHandler(this.chart1_Click);
+            title3.Name = "Graph";
+            title3.Text = "Chart Graph";
+            this.chartGraph.Titles.Add(title3);
             // 
             // chart2
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart2.Legends.Add(legend2);
+            chartArea4.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart2.Legends.Add(legend4);
             this.chart2.Location = new System.Drawing.Point(505, 35);
             this.chart2.Name = "chart2";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Legend = "Legend1";
-            series2.Name = "Yanma Sayısı";
-            this.chart2.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series4.Legend = "Legend1";
+            series4.Name = "Yanma Sayısı";
+            this.chart2.Series.Add(series4);
             this.chart2.Size = new System.Drawing.Size(464, 411);
             this.chart2.TabIndex = 1;
             this.chart2.Text = "chart2";
-            title2.Name = "Chart Circle";
-            title2.Text = "Chart Circle";
-            this.chart2.Titles.Add(title2);
+            title4.Name = "Chart Circle";
+            title4.Text = "Chart Circle";
+            this.chart2.Titles.Add(title4);
+            this.chart2.Click += new System.EventHandler(this.chart2_Click);
             // 
             // button1
             // 
@@ -104,7 +104,7 @@
             this.Controls.Add(this.chartGraph);
             this.Name = "Form3";
             this.Text = "Form3";
-            // this.Load += new System.EventHandler(this.Form3_Load_1);
+            this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chartGraph)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);

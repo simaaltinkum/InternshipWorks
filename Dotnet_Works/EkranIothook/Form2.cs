@@ -49,39 +49,12 @@ namespace EkranIothook
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+
         }
 
         // HttpResponse verisini işlemek için ayrı bir metot
-        private void ProcessResponseData(string responseData)
+        private async void ProcessResponseData(string responseData)
         {
-            // JSON veriyi dönüştür
-            IothookMember member = JsonConvert.DeserializeObject<IothookMember>(responseData);
-            string field_4 = member.field_4;
-            string field_5 = member.field_5;
-            string field_6 = member.field_6;
-
-            // Grafik üzerine verileri ekle
-            chart2.Series["Yanma Sayısı"].Points.Clear();
-            chart2.Series["Yanma Sayısı"].Points.Add(new DataPoint(0, Convert.ToDouble(field_4)) { AxisLabel = "Kırmızı" });
-            chart2.Series["Yanma Sayısı"].Points.Add(new DataPoint(0, Convert.ToDouble(field_5)) { AxisLabel = "Yeşil" });
-            chart2.Series["Yanma Sayısı"].Points.Add(new DataPoint(0, Convert.ToDouble(field_6)) { AxisLabel = "Sarı" });
-        }
-
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private async void Form2_Load(object sender, EventArgs e)
-        {
-           
-            // HttpRequestMessage oluşturulması
             HttpClient httpClient = new HttpClient();
 
             // HttpRequestMessage oluşturulması
@@ -103,9 +76,23 @@ namespace EkranIothook
             chartGraph.Series["Yanma Sayısı"].Points.AddXY("Kırmızı", field_4);
             chartGraph.Series["Yanma Sayısı"].Points.AddXY("Yeşil", field_5);
             chartGraph.Series["Yanma Sayısı"].Points.AddXY("Sarı", field_6);
+        }
 
-            // JSON formatına dönüştürülmüş veriyi göster
-            //  MessageBox.Show(responseString);
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void Form2_Load(object sender, EventArgs e)
+        {
+           
+            
         }
 
         public class IothookMember
